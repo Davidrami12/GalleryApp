@@ -1,5 +1,19 @@
+*{
+  font-family: 'Roboto Slab', serif;
+  
+  /*box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;*/
+}
+
 .App {
   text-align: center;
+  
+}
+
+body{
+  background-color: #DCE2F0;
 }
 
 .App-logo {

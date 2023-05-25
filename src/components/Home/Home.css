@@ -1,0 +1,30 @@
+.titles-container{
+    text-align: left;
+    margin-left: 2rem;
+}
+
+.image-container{
+    position: relative;
+    background: white;
+    max-width: 750px;
+    width: 100%;
+    height: 450px;
+    margin: 0 auto;
+}
+
+.image{
+    position: relative;
+    background: white;
+    max-width: 750px;
+    width: 100%;
+    height: 450px;
+    margin: 0 auto;
+    display: block;
+}
+
+@media only screen and (min-width: 1000px) {
+    .titles-container{
+        text-align: left;
+        margin-left: 12rem;
+    }
+}
