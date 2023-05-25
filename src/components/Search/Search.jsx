@@ -10,9 +10,18 @@ export const Search = ({ handleSubmit, setQuery }) => {
           <div className='icon-container'>
             <SearchIcon sx={{ fontSize: 28 }}/>
           </div>
-          <input type='text' id='' class='search-input' placeholder='Explore images...'/>
+          <input type='search' 
+            id='' 
+            class='search-input' 
+            placeholder='Explore images...' 
+            onChange={(e) => setQuery(e.target.value)}/>
 
-          <button type='submit' class='submit-button' onClick={(e) => handleSubmit(e)}>Search</button>
+          <button 
+            type='submit' 
+            class='submit-button' 
+            onClick={(e) => handleSubmit(e)}>
+            Search
+          </button>
         </div>
 
       </form>
