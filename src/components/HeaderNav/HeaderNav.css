@@ -3,11 +3,14 @@
     background-color: #50586C;
     color: white;
     padding: 1rem;
+    /*position: fixed;
+    width: 100%;
+    margin-top: -35px;*/
 }
 
 .header-container{
     margin-left: 2rem;
-    margin-right: 1rem;
+    margin-right: 2rem;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -23,6 +26,10 @@
     vertical-align: middle;
     text-align: center;
     
+}
+
+.nav-links{
+    margin-top: -10px;
 }
 
 a{

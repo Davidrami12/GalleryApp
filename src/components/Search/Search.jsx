@@ -1,33 +1,17 @@
-import React from 'react'
-import './Search.css'
-import SearchIcon from '@mui/icons-material/Search';
-
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-
-//Redux
+import React, { useState, useEffect } from "react";
+import "./Search.css";
+import SearchIcon from "@mui/icons-material/Search";
 import { useDispatch, useSelector } from "react-redux";
-import { getPhotos } from "../../features/search/searchSlice";
-import { selectPhotos } from "../../features/search/searchSlice";
-
-//Components
+import { getPhotos, selectPhotos } from "../../features/search/searchSlice";
 import Card from "../Card/Card";
 import Loading from "../Loading/Loading";
 
-
-
-
 export const Search = () => {
-
   const [phRepeat, setPhRepeat] = useState([]);
   const [value, setValue] = useState("");
   const dispatch = useDispatch();
   const photoDataResult = useSelector(selectPhotos);
   const favourites = useSelector((state) => state.favourite);
-
-  useEffect(() => {
-    dispatch(getPhotos({ value: value }));
-  }, [value, dispatch]);
 
   useEffect(() => {
     let repeatPhotosArray = [];
@@ -49,31 +33,31 @@ export const Search = () => {
     }
   }, [photoDataResult]);
 
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(getPhotos({ value: value }));
+  };
 
   return (
-    <div>
-      <form action="" id='search-form' /*onSubmit={handleSubmit}*/>
-        <div class="input-group">
-          <div className='icon-container'>
-            <SearchIcon sx={{ fontSize: 28 }}/>
+    <div className="search-container">
+      <form id="search-form" onSubmit={handleSubmit}>
+        <div className="input-group">
+          <div className="icon-container">
+            <SearchIcon sx={{ fontSize: 28 }} />
           </div>
-          <input type='text' 
-            id='' 
-            class='search-input' 
-            placeholder='Explore images...' 
-            onKeyUp={(e) => setValue(e.target.value)}/>
+          <input
+            type="text"
+            className="search-input"
+            placeholder="Explore images..."
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+          />
 
-          <button 
-            type='submit' 
-            class='submit-button' 
-            /*onClick={(e) => handleSubmit(e)}*/>
+          <button type="submit" className="submit-button">
             Search
           </button>
         </div>
-
       </form>
-
 
       <div className="main-content">
         <div className="main-content__grid">
@@ -89,11 +73,11 @@ export const Search = () => {
             ))
           ) : (
             <div>
-              <p>Hola</p>
+              <Loading />
             </div>
           )}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

@@ -50,9 +50,9 @@ const Card = (photo) => {
   };
 
   const changeIcon = (e) => {
-    e.target.style.color = "#ED5A6B";
+    e.target.style.color = "red";
     e.target.style.cursor = "default";
-    e.target.style.transition = "all ease 1s";
+    e.target.style.transition = "all ease 0.5s";
   };
 
   //Gallery Render
@@ -91,18 +91,18 @@ const Card = (photo) => {
             alt="Img from Unsplash"
           />
           <div className="grid-img__info-icon">
-            <p>
+            {/*<p>
               {photo.photo.description
                 ? photo.photo.description
                 : photo.photo.alt_description}{" "}
-            </p>
+              </p>*/}
 
             <div>
               {photo.phRepeat === true ? (
-                <FavoriteIcon style={{ color: "#ED5A6B" }} />
+                <FavoriteIcon sx={{ fontSize: 40 }} style={{ color: "red" }} />
               ) : (
                 <FavoriteIcon
-                  style={{ color: "white", cursor: "pointer" }}
+                sx={{ fontSize: 40 }} style={{ color: "white", cursor: "pointer" }}
                   onClick={(e) => {
                     handleSave(photo, photo.photo.id);
                     changeIcon(e);
