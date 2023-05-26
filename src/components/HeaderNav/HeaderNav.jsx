@@ -22,8 +22,9 @@ export const Header = () => {
           <div className='nav-links'>
             <Link 
               to="/search" 
+              id='search-link'
               className={`header-link ${location.pathname === '/search' ? 'active-link' : ''}`}>
-                <SearchIcon sx={{ fontSize: 28 }}/> Search
+                <SearchIcon sx={{ fontSize: 28 }}/> <span>Search</span>
             </Link>
             
             <HorizontalRuleIcon className='separator' sx={{ fontSize: 46,  transform: "rotate(90deg)"}}/>
@@ -31,7 +32,7 @@ export const Header = () => {
             <Link 
               to="/favorites" 
               className={`header-link ${location.pathname === '/favorites' ? 'active-link' : ''}`}>
-                <FavoriteIcon  sx={{ fontSize: 28 }}/> Favorites 
+                <FavoriteIcon  sx={{ fontSize: 28 }}/> <span>Favorites</span> 
             </Link>
           </div>
 
