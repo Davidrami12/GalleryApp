@@ -4,7 +4,7 @@ export const getPhotos = createAsyncThunk(
   "photos/getPhotos",
 
   async ({ value }) => {
-    const API_KEY = "f3_j5xaaagLteInPGf7sUqRFgJc8ulftP1UGe1ulBi0";
+    const API_KEY = "lReeBLBs6T5IndOJkM7ptm4_2wBaK6re5Bb32GKhIzo";
     const URL = `https://api.unsplash.com/search/photos/?client_id=${API_KEY}&query=${value}&per_page=18`;
     const URL_RANDOM = `https://api.unsplash.com/photos/random/?client_id=${API_KEY}&count=18`;
 
