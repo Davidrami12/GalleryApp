@@ -46,6 +46,21 @@
   border: 4.5px solid white;
 }
 
+.heart-icon{
+  filter: drop-shadow(5px 5px 10px #000);
+  background-color: transparent;
+  padding: 8px;
+  border-radius: 0%;
+  transition: 0.5s;
+}
+
+.heart-icon:hover{
+  filter: drop-shadow(5px 5px 10px #000);
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+  transition: 0.5s;
+}
+
 
 @media (max-width: 768px) {
 

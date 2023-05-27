@@ -4,6 +4,7 @@ import "./Card.css";
 //Icons from MUI
 import DeleteIcon from "@mui/icons-material/Delete";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import InfoIcon from "@mui/icons-material/Info";
 
 //Redux
@@ -97,11 +98,11 @@ const Card = (photo) => {
                 : photo.photo.alt_description}{" "}
               </p>*/}
 
-            <div>
+            <div className="heart-icon">
               {photo.phRepeat === true ? (
-                <FavoriteIcon sx={{ fontSize: 40 }} style={{ color: "red" }} />
+                <FavoriteIcon className="" sx={{ fontSize: 40 }} style={{ color: "red" }} />
               ) : (
-                <FavoriteIcon
+                <FavoriteIcon className=""
                 sx={{ fontSize: 40 }} style={{ color: "white", cursor: "pointer" }}
                   onClick={(e) => {
                     handleSave(photo, photo.photo.id);
