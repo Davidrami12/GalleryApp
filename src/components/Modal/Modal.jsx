@@ -31,7 +31,7 @@ const Modal = ({ photo, closeModal }) => {
       <div className="modalBackground">
         <div className="modalContainer">
           <div className="titleCloseBtn">
-            <button onClick={() => closeModal(false)}>x</button>
+            <button onClick={() => closeModal(false)}>X</button>
           </div>
           <div className="title">
             <h1 className="h1-modal">Photo Information:</h1>
@@ -68,15 +68,6 @@ const Modal = ({ photo, closeModal }) => {
             >
               Download ⬇️
             </p>
-          </div>
-          <div className="footer">
-            <button
-              onClick={() => {
-                closeModal(false);
-              }}
-            >
-              Close
-            </button>
           </div>
         </div>
       </div>

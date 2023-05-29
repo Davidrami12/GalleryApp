@@ -1,0 +1,172 @@
+.modalBackground {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top:0;
+    left:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+  }
+  
+  .modalContainer {
+    width: 500px;
+    height: 500px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.85) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .modalContainer .h1-modal{
+    display: inline-block;
+    text-align: center;
+  }
+
+  .h1-modal {
+    color: black;
+  }
+  
+  .titleCloseBtn {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .titleCloseBtn button {
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+  }
+  
+  .title {
+    text-align: center;
+  }
+
+  .input-modal {
+    margin: 0 1rem;
+    max-width: 200px;
+    border:none;
+    border-bottom: 1px solid black;
+  }
+
+  .input-modal:focus {
+    outline: none;
+  }
+
+  .modalContainer .body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .modalContainer .body p{
+    padding: .3rem 0;
+  }
+  
+  .modalContainer .footer {
+    flex: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modalContainer .footer button {
+    width: 150px;
+    height: 45px;
+    margin: 10px;
+    border: none;
+    background-color: crimson;
+    color: white;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  @media(max-width: 756px) {
+    .modalContainer {
+      max-width: 450px;
+      max-height: 500px;
+    }
+    
+    .modalContainer .h1-modal {
+      display: inline-block;
+      text-align: center;
+    }
+  
+    .h1-modal {
+      color: black;
+      font-size: 2rem;
+    }
+    
+    .titleCloseBtn {
+      display: flex;
+      justify-content: flex-end;
+    }
+    
+    .titleCloseBtn button {
+      background-color: transparent;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    
+    .modalContainer .body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      font-size: 1.5rem;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    p{
+      font-size: 1.2rem;
+    }
+  
+    .modalContainer .body p{
+      padding: .3rem 0;
+    }
+    
+    .modalContainer .footer {
+      flex: 20%;
+    }
+    
+    .modalContainer .footer button {
+      width: 30%;
+      height: 35px;
+      margin: 5px;
+      font-size: 1.2rem;
+    }
+
+  }
+
+  @media(max-width: 480px) {
+    .input-modal {
+      margin: 0 .5rem;
+      max-width: 120px;
+    }
+  }
+
+  @media(max-width: 350px) {
+    body {
+      padding: 0;
+    }
+    .h1-modal {
+      color: black;
+      font-size: 1.5rem;
+    }
+    .input-modal {
+      margin: 0 .5rem;
+      max-width: 80px;
+    }
+  }

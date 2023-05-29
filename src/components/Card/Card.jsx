@@ -8,6 +8,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import InfoIcon from "@mui/icons-material/Info";
 import GetAppIcon from '@mui/icons-material/GetApp';
+import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
 
 //Redux
 import { useDispatch, useSelector } from "react-redux";
@@ -74,14 +75,16 @@ const Card = (photo) => {
             src={photo.photo.img}
             alt="Img from Unsplash"
           />
-          <div className="grid-img__icons">
+          <div className="grid-img__info-icon">
             <InfoIcon
-              style={{ color: "FFFFFF", cursor: "pointer" }}
+              className="heart-icon"
+              sx={{ fontSize: 40, color: "white", cursor: "pointer" }}
               onClick={() => setOpenModal(true)}
             />
-            <p>{photo.photo.description} </p>
+            {/*<p>{photo.photo.description} </p>*/}
             <DeleteIcon
-              style={{ color: "FFFFFF", cursor: "pointer" }}
+              className="heart-icon"
+              sx={{ fontSize: 40, color: "white", cursor: "pointer" }}
               onClick={() => handleDelete(photo, photo.photo.id)}
             />
           </div>
@@ -107,6 +110,7 @@ const Card = (photo) => {
               </p>*/}
             <div className="heart-icon">
               <GetAppIcon onClick={handleDownload} sx={{ fontSize: 40, color: "white", cursor: "pointer" }} />
+              {/* DownloadForOfflineIcon */}
             </div>
 
             <div className="heart-icon">
