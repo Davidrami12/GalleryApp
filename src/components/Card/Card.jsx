@@ -16,7 +16,7 @@ import {
 import Modal from "../Modal/Modal";
 
 const Card = (photo) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); // dispatch ejecuta el método para el store
   const favourites = useSelector((state) => state.favourite);
   const [openModal, setOpenModal] = useState(false);
 
@@ -29,6 +29,7 @@ const Card = (photo) => {
       }
     }
 
+    // Save only the necessary data
     const dataToSave = {
       id: data.photo.id,
       description: data.photo.description,

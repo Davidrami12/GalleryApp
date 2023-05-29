@@ -9,6 +9,26 @@
     scroll-behavior: smooth;*/
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #50586C; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #82B1FF; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: white; 
+}
+
 .App {
   text-align: center;
   

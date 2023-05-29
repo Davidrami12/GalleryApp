@@ -45,8 +45,8 @@ a{
 }
 
 a:hover{
-    color: gray;
-    transition: 0.5s;
+    color: black;
+    transition: 0.3s;
 }
 
 .header-link{

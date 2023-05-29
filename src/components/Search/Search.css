@@ -182,7 +182,7 @@
   }
 }*/
 
-@media (max-width: 828px) {
+/*@media (max-width: 828px) {
   .searchBar {
     margin: 0 auto;
     width: 60%;
@@ -218,29 +218,21 @@
     height: 150px;
 
   }
-}
+}*/
 
 @media (max-width: 450px) {
-
-  .searchBar-explorer {
-    padding: 0 .5rem;
-    gap:1rem
-  }
 
   .select {
     font-size: 15px;
     line-height: 20px;
   }
 
-  .searchBar__seachContainer-icon {
-    width: 50%;
-  }
 
   .main-content__grid {
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(auto-fill, 1fr);
-    gap: 1rem;
+    gap: 2rem;
   }
 
   .grid-img {

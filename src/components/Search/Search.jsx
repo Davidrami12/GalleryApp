@@ -72,7 +72,7 @@ export const Search = () => {
               />
             ))
           ) : (
-            <div>
+            <div className="loading">
               <Loading />
             </div>
           )}
