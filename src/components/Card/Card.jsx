@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { saveAs } from 'file-saver';
 import "./Card.css";
 
 //Icons from MUI
@@ -6,6 +7,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import InfoIcon from "@mui/icons-material/Info";
+import GetAppIcon from '@mui/icons-material/GetApp';
 
 //Redux
 import { useDispatch, useSelector } from "react-redux";
@@ -49,6 +51,11 @@ const Card = (photo) => {
 
   const handleDelete = (photo) => {
     dispatch(deleteFavourite(photo.photo.id));
+  };
+
+  const handleDownload = () =>{
+    let img = photo.photo;
+    saveAs(img.urls.full, `${img.id}`)
   };
 
   const changeIcon = (e) => {
@@ -98,6 +105,9 @@ const Card = (photo) => {
                 ? photo.photo.description
                 : photo.photo.alt_description}{" "}
               </p>*/}
+            <div className="heart-icon">
+              <GetAppIcon onClick={handleDownload} sx={{ fontSize: 40, color: "white", cursor: "pointer" }} />
+            </div>
 
             <div className="heart-icon">
               {photo.phRepeat === true ? (

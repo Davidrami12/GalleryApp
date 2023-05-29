@@ -73,6 +73,8 @@ export const Search = () => {
             ))
           ) : (
             <div className="loading">
+              <p>No images to display</p>
+              <p>Add from favorites!</p>
               <Loading />
             </div>
           )}
