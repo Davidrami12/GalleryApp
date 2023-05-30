@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { saveAs } from 'file-saver';
 import "./Card.css";
 
 //Icons from MUI
 import DeleteIcon from "@mui/icons-material/Delete";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import InfoIcon from "@mui/icons-material/Info";
 import GetAppIcon from '@mui/icons-material/GetApp';
-import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
+import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
+import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
 
 //Redux
 import { useDispatch, useSelector } from "react-redux";
@@ -20,34 +20,35 @@ import {
 import Modal from "../Modal/Modal";
 
 const Card = (photo) => {
-  const dispatch = useDispatch(); // dispatch ejecuta el método para el store
+  const dispatch = useDispatch();
   const favourites = useSelector((state) => state.favourite);
   const [openModal, setOpenModal] = useState(false);
+  const [isFavourite, setIsFavourite] = useState(false);
 
-  const handleSave = (data) => {
-    let sw = false;
+  useEffect(() => {
+    const favourite = favourites.find((item) => item.id === photo.photo.id);
+    setIsFavourite(favourite !== undefined);
+  }, [favourites, photo]);
 
-    for (let index = 0; index < favourites.length; index++) {
-      if (favourites[index].id === data.photo.id) {
-        sw = true;
-      }
-    }
-
-    // Save only the necessary data
-    const dataToSave = {
-      id: data.photo.id,
-      description: data.photo.description,
-      downloads: data.photo.downloads,
-      likes: data.photo.likes,
-      links: data.photo.links.download,
-      height: data.photo.height,
-      img: data.photo.urls.regular,
-      width: data.photo.width,
-      dateImported: new Date(data.dateImported).toLocaleDateString("es"),
-    };
-
-    if (sw === false) {
+  const handleSaveOrDelete = (data) => {
+    if (isFavourite) {
+      dispatch(deleteFavourite(data.photo.id));
+      setIsFavourite(false);
+    } else {
+      // Save only the necessary data
+      const dataToSave = {
+        id: data.photo.id,
+        description: data.photo.description,
+        downloads: data.photo.downloads,
+        links: data.photo.links.download,
+        img: data.photo.urls.regular,
+        likes: data.photo.likes,
+        width: data.photo.width,
+        height: data.photo.height,
+        dateImported: new Date(data.dateImported).toLocaleDateString("es"),
+      };
       dispatch(addFavourite(dataToSave));
+      setIsFavourite(true);
     }
   };
 
@@ -58,20 +59,12 @@ const Card = (photo) => {
   const handleDownload = () => {
     let urlToDownload;
     if (photo.callFrom === "gallery") {
-      // En "Gallery Render", usa 'photo.photo.img'
       urlToDownload = photo.photo.img;
     } else {
-      // En "Explorer Render", usa 'photo.photo.urls.full'
       urlToDownload = photo.photo.urls.full;
     }
-  
-    saveAs(urlToDownload, `${photo.photo.id}`);
-  };
 
-  const changeIcon = (e) => {
-    e.target.style.color = "red";
-    e.target.style.cursor = "default";
-    e.target.style.transition = "all ease 0.5s";
+    saveAs(urlToDownload, `${photo.photo.id}`);
   };
 
   //Gallery Render
@@ -85,7 +78,7 @@ const Card = (photo) => {
             alt="Img from Unsplash"
           />
           <div className="grid-img__info-icon">
-            <GetAppIcon
+            <DownloadForOfflineIcon
               className="heart-icon"
               sx={{ fontSize: 40, color: "white", cursor: "pointer" }}
               onClick={handleDownload}
@@ -93,12 +86,12 @@ const Card = (photo) => {
             
             <BorderColorIcon
               className="heart-icon"
-              sx={{ fontSize: 40, color: "#82B1FF", cursor: "pointer" }}
+              sx={{ fontSize: 40, color: "white", cursor: "pointer" }}
               onClick={() => setOpenModal(true)}
             />
             
             {/*<p>{photo.photo.description} </p>*/}
-            <DeleteIcon
+            <HeartBrokenIcon
               className="heart-icon"
               sx={{ fontSize: 40, color: "white", cursor: "pointer" }}
               onClick={() => handleDelete(photo, photo.photo.id)}
@@ -126,22 +119,20 @@ const Card = (photo) => {
                 : photo.photo.alt_description}{" "}
               </p>*/}
             <div className="heart-icon">
-              <GetAppIcon onClick={handleDownload} sx={{ fontSize: 40, color: "white", cursor: "pointer" }} />
+              <DownloadForOfflineIcon onClick={handleDownload} 
+                sx={{ fontSize: 40, color: "white", cursor: "pointer" }} 
+              />
               {/* DownloadForOfflineIcon */}
             </div>
 
             <div className="heart-icon">
-              {photo.phRepeat === true ? (
-                <FavoriteIcon className="" sx={{ fontSize: 40 }} style={{ color: "red" }} />
-              ) : (
-                <FavoriteIcon className=""
-                sx={{ fontSize: 40 }} style={{ color: "white", cursor: "pointer" }}
-                  onClick={(e) => {
-                    handleSave(photo, photo.photo.id);
-                    changeIcon(e);
-                  }}
-                />
-              )}
+              <FavoriteIcon
+                className=""
+                sx={{ fontSize: 40, transition: "0s", color: isFavourite ? "red" : "white", cursor: "pointer" }}
+                onClick={() => {
+                  handleSaveOrDelete(photo);
+                }}
+              />
             </div>
           </div>
         </div>
