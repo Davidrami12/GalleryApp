@@ -9,6 +9,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import InfoIcon from "@mui/icons-material/Info";
 import GetAppIcon from '@mui/icons-material/GetApp';
 import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
+import BorderColorIcon from '@mui/icons-material/BorderColor';
 
 //Redux
 import { useDispatch, useSelector } from "react-redux";
@@ -54,9 +55,17 @@ const Card = (photo) => {
     dispatch(deleteFavourite(photo.photo.id));
   };
 
-  const handleDownload = () =>{
-    let img = photo.photo;
-    saveAs(img.urls.full, `${img.id}`)
+  const handleDownload = () => {
+    let urlToDownload;
+    if (photo.callFrom === "gallery") {
+      // En "Gallery Render", usa 'photo.photo.img'
+      urlToDownload = photo.photo.img;
+    } else {
+      // En "Explorer Render", usa 'photo.photo.urls.full'
+      urlToDownload = photo.photo.urls.full;
+    }
+  
+    saveAs(urlToDownload, `${photo.photo.id}`);
   };
 
   const changeIcon = (e) => {
@@ -76,17 +85,25 @@ const Card = (photo) => {
             alt="Img from Unsplash"
           />
           <div className="grid-img__info-icon">
-            <InfoIcon
+            <GetAppIcon
               className="heart-icon"
               sx={{ fontSize: 40, color: "white", cursor: "pointer" }}
+              onClick={handleDownload}
+            />
+            
+            <BorderColorIcon
+              className="heart-icon"
+              sx={{ fontSize: 40, color: "#82B1FF", cursor: "pointer" }}
               onClick={() => setOpenModal(true)}
             />
+            
             {/*<p>{photo.photo.description} </p>*/}
             <DeleteIcon
               className="heart-icon"
               sx={{ fontSize: 40, color: "white", cursor: "pointer" }}
               onClick={() => handleDelete(photo, photo.photo.id)}
             />
+            
           </div>
         </div>
         {openModal && <Modal photo={photo} closeModal={setOpenModal} />}

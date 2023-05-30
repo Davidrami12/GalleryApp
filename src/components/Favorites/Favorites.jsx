@@ -88,7 +88,7 @@ export const Favorites = () => {
         <div className="order-favs">
           <select
             className="select"
-            defaultValue={"date"}
+            
             onChange={handleSelect}> ORDER BY
               <option value="date">By date</option>
               <option value="width">By width</option>

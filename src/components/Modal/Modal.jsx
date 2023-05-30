@@ -1,5 +1,9 @@
 import "./Modal.css";
 import EditIcon from "@mui/icons-material/Edit";
+import CloseIcon from '@mui/icons-material/Close';
+import DateRangeIcon from '@mui/icons-material/DateRange';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import DescriptionIcon from '@mui/icons-material/Description';
 import { editDescription } from "../../features/favorites/favoritesSlice";
 import { useDispatch } from "react-redux";
 
@@ -31,14 +35,14 @@ const Modal = ({ photo, closeModal }) => {
       <div className="modalBackground">
         <div className="modalContainer">
           <div className="titleCloseBtn">
-            <button onClick={() => closeModal(false)}>X</button>
+            <button onClick={() => closeModal(false)}><CloseIcon/></button>
           </div>
           <div className="title">
             <h1 className="h1-modal">Photo Information:</h1>
           </div>
           <div className="body">
             <p>
-              Full description:
+               <DescriptionIcon/> Description:
               <input
                 className="input-modal"
                 name="description"
@@ -54,10 +58,10 @@ const Modal = ({ photo, closeModal }) => {
               />
               <EditIcon style={{ cursor: "pointer" }} />
             </p>
-            <p>Width: {photo.photo.width}</p>
-            <p>Height: {photo.photo.height}</p>
-            <p>Likes: {photo.photo.likes}</p>
-            <p>Date saved: {photo.photo.dateImported}</p>
+            <p>Width: {photo.photo.width}px</p>
+            <p>Height: {photo.photo.height}px</p>
+            <p><FavoriteBorderIcon/> Likes: {photo.photo.likes}</p>
+            <p><DateRangeIcon/> Date saved: {photo.photo.dateImported}</p>
             <p
               style={{
                 cursor: "pointer",
