@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Search.css";
+import noImage from "../../assets/no-image.png";
 import SearchIcon from "@mui/icons-material/Search";
 import { useDispatch, useSelector } from "react-redux";
 import { getPhotos, selectPhotos } from "../../features/search/searchSlice";
@@ -76,6 +77,7 @@ export const Search = () => {
               <p>No images to display</p>
               <p>Search something!</p>
               <Loading />
+              <img className="no-image" src={noImage} alt="" />
             </div>
           )}
         </div>

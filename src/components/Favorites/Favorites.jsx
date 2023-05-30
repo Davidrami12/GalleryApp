@@ -1,4 +1,5 @@
 import "./Favorites.css";
+import noImage from "../../assets/no-image.png";
 
 import { Link } from "react-router-dom";
 
@@ -50,18 +51,16 @@ export const Favorites = () => {
 
     switch (orderBy) {
       case "width":
-        arrOrderedPhotos.sort((a, b) => a.width - b.width);
+        arrOrderedPhotos.sort((a, b) => b.width - a.width);
         break;
       case "height":
-        arrOrderedPhotos.sort((a, b) => a.height - b.height);
+        arrOrderedPhotos.sort((a, b) => b.height - a.height);
         break;
       case "likes":
-        arrOrderedPhotos.sort((a, b) => a.likes - b.likes);
+        arrOrderedPhotos.sort((a, b) => b.likes - a.likes);
         break;
       case "date":
-        arrOrderedPhotos.sort((a, b) => a.date - b.date);
-      break;
-      default:
+        arrOrderedPhotos.sort((a, b) => b.date - a.date);
       break;
     }
     setGallery(arrOrderedPhotos);
@@ -79,7 +78,7 @@ export const Favorites = () => {
             <input
               type="text"
               className="search-input"
-              placeholder="Search by descriptions"
+              placeholder="Search descriptions"
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
@@ -88,7 +87,6 @@ export const Favorites = () => {
         <div className="order-favs">
           <select
             className="select"
-            
             onChange={handleSelect}> ORDER BY
               <option value="date">By date</option>
               <option value="width">By width</option>
@@ -110,7 +108,8 @@ export const Favorites = () => {
           ) : (
             <div className="loading">
               <p>No images added to favorites yet</p>
-              <p>Add from <Link to="/search">Search</Link> </p>
+              <p>Add from <Link to="/search">Search</Link></p>
+              <img className="no-image" src={noImage} alt="" />
             </div>
             
           )}

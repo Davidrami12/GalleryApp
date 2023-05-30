@@ -10,13 +10,15 @@ import GetAppIcon from '@mui/icons-material/GetApp';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
 import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
+import DateRangeIcon from '@mui/icons-material/DateRange';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import DescriptionIcon from '@mui/icons-material/Description';
+import PanoramaVerticalIcon from '@mui/icons-material/PanoramaVertical';
+import PanoramaHorizontalIcon from '@mui/icons-material/PanoramaHorizontal';
 
 //Redux
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addFavourite,
-  deleteFavourite,
-} from "../../features/favorites/favoritesSlice";
+import { addFavourite, deleteFavourite } from "../../features/favorites/favoritesSlice";
 import Modal from "../Modal/Modal";
 
 const Card = (photo) => {
@@ -38,8 +40,8 @@ const Card = (photo) => {
       // Save only the necessary data
       const dataToSave = {
         id: data.photo.id,
-        description: data.photo.description,
-        downloads: data.photo.downloads,
+        description: data.photo.alt_description,
+        // downloads: data.photo.downloads,
         links: data.photo.links.download,
         img: data.photo.urls.regular,
         likes: data.photo.likes,
@@ -69,13 +71,15 @@ const Card = (photo) => {
 
   //Gallery Render
   if (photo.callFrom === "gallery") {
+    const description = photo.photo.description ? photo.photo.description.charAt(0).toUpperCase() + photo.photo.description.slice(1) : "";
+
     return (
       <>
         <div className="grid-img-container" key={photo.photo.id}>
           <img
             className="grid-img"
             src={photo.photo.img}
-            alt="Img from Unsplash"
+            alt=""
           />
           <div className="grid-img__info-icon">
             <DownloadForOfflineIcon
@@ -89,15 +93,22 @@ const Card = (photo) => {
               sx={{ fontSize: 40, color: "white", cursor: "pointer" }}
               onClick={() => setOpenModal(true)}
             />
-            
-            {/*<p>{photo.photo.description} </p>*/}
+
             <HeartBrokenIcon
               className="heart-icon"
               sx={{ fontSize: 40, color: "white", cursor: "pointer" }}
               onClick={() => handleDelete(photo, photo.photo.id)}
             />
-            
           </div>
+
+          <div className="img-data">
+            <p><PanoramaHorizontalIcon/> Width: {photo.photo.width}px</p>
+            <p><PanoramaVerticalIcon/> Height: {photo.photo.height}px</p>
+            <p><FavoriteBorderIcon/> Likes: {photo.photo.likes}</p>
+            <p><DateRangeIcon/> Date saved: {photo.photo.dateImported}</p>
+            <p><DescriptionIcon/> {description}</p>
+          </div>
+          
         </div>
         {openModal && <Modal photo={photo} closeModal={setOpenModal} />}
       </>
@@ -110,7 +121,7 @@ const Card = (photo) => {
           <img
             className="grid-img"
             src={photo.photo.urls.regular}
-            alt="Img from Unsplash"
+            alt=""
           />
           <div className="grid-img__info-icon">
             {/*<p>

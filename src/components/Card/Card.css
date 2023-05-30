@@ -1,7 +1,7 @@
 .grid-img-container {
   position: relative;
   width: 100%;
-  
+  box-shadow: 6px 10px 10px rgba(61, 57, 57, 0.9);
 }
   
 .grid-img {
@@ -61,6 +61,15 @@
   background-color: rgba(0, 0, 0, 0.25);
   border-radius: 50%;
   transition: 0.5s;
+}
+
+.img-data{
+  height: 175px;
+  padding: 15px;
+  text-align: left;
+  background: white;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 
