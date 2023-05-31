@@ -134,18 +134,7 @@
 
 
 .grid-img-container {
-  position: relative;
-  box-sizing: border-box;
-  border-radius: 25px;
-  outline: 0px solid black;
-  transition: 0.2s;
-}
-
-.grid-img-container:hover{
-  box-sizing: border-box;
-  border-radius: 25px;
-  outline: 5px solid black;
-  transition: 0.1s;
+  
 }
 
 .grid-img {

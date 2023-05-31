@@ -1,8 +1,19 @@
 .grid-img-container {
   background-color: transparent;
+  box-sizing: border-box;
   position: relative;
   width: 100%;
   box-shadow: 6px 10px 10px rgba(61, 57, 57, 0.9);
+  border-radius: 25px;
+  outline: 0px solid black;
+  transition: 0.2s;
+}
+
+.grid-img-container:hover{
+  box-sizing: border-box;
+  border-radius: 25px;
+  outline: 5px solid black;
+  transition: 0.1s;
 }
   
 .grid-img-search {
@@ -101,10 +112,6 @@
 
   .grid-img-container {
     margin: 0 auto;
+    max-width: 300px;
   }
-
-  /*.grid-img {
-    height: 360px;
-    width: 300px;
-  }*/
 }

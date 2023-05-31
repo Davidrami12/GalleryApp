@@ -2,6 +2,7 @@
   font-family: 'Roboto Slab', serif;
   margin: 0;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  scroll-behavior: smooth;
   
   /*box-sizing: border-box;
     margin: 0;
@@ -35,12 +36,7 @@
 
 body{
   background-color: #DCE2F0;
-  overflow: overlay; /* transparent scrollbar */
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  /* overflow: overlay; *//* transparent scrollbar */
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -62,13 +58,4 @@ body{
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

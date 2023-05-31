@@ -17,11 +17,13 @@ import { useEffect, useState, useRef } from "react";
 
 const Modal = ({ photo, closeModal }) => {
   const [description, setDescription] = useState('');
+  const [inputValue, setInputValue] = useState(''); // Nuevo estado para el valor del input
   const dispatch = useDispatch();
   const modalContentEl = useRef(null); // Agregamos la referencia
 
   useEffect(() => {
     setDescription(photo.photo.description);
+    setInputValue(photo.photo.description); // Actualiza el valor del input cuando cambia la foto
   }, [photo.photo]);
 
   // Close modal when click out of the modal
@@ -31,14 +33,18 @@ const Modal = ({ photo, closeModal }) => {
     }
   }
 
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value); // Actualiza el valor del input
+  };
+
+  const handleEdit = () => {
+    dispatch(editDescription({ id: photo.photo.id, desc: inputValue }));
+    setDescription(inputValue); // Actualiza la descripción
+  };
+
   const handleDownload = () => {
     let urlToDownload = photo.photo.img;
     saveAs(urlToDownload, `${photo.photo.id}`);
-  };
-
-  const handleEdit = (e) => {
-    const desc = e.target.value;
-    dispatch(editDescription({ id: photo.photo.id, desc }));
   };
 
   return (
@@ -46,7 +52,7 @@ const Modal = ({ photo, closeModal }) => {
       <div className="modal-container" ref={modalContentEl}>
         <div className="close-button-container">
           <button className="close-button" onClick={() => closeModal(false)}>
-            <DisabledByDefaultIcon sx={{ fontSize: 42, borderRadius: '25px' }}/>
+            <DisabledByDefaultIcon sx={{ fontSize: 42, borderRadius: '30px' }}/>
           </button>
         </div>
         <div className="body" >
@@ -59,18 +65,13 @@ const Modal = ({ photo, closeModal }) => {
                 name="description"
                 type="text"
                 maxlength="50"
-                placeholder={
-                  photo.photo.description
-                    ? photo.photo.description
-                    : "No description added for this image"
-                }
-                onChange={handleEdit}
-                value={description}
+                placeholder={photo.photo.description ? photo.photo.description : "This image has no description"}
+                onChange={handleInputChange} // Cambiado a handleInputChange
+                value={inputValue} // Cambiado a inputValue
                 style={{color: 'black', fontSize: '16px'}}
               />
-              <button>
-                <EditIcon className="icon-data" style={{ cursor: "pointer" }}/>
-                Edit
+              <button className="edit-button" onClick={handleEdit}>
+                <EditIcon className="icon-data"/> Save edit
               </button>
               
             </p>

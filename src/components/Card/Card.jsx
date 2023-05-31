@@ -105,10 +105,11 @@ const Card = (photo) => {
             <p><PanoramaVerticalIcon className="icon-data"/> <u>Height:</u> {photo.photo.height}px</p>
             <p><FavoriteBorderIcon className="icon-data"/> <u>Likes:</u> {photo.photo.likes}</p>
             <p><DateRangeIcon className="icon-data"/> <u>Date saved:</u> {photo.photo.dateImported}</p>
-            <p><DescriptionIcon className="icon-data"/> {description}</p>
+            <p><DescriptionIcon className="icon-data"/> {description ? description : "This image has no description"}</p>
           </div>
           
         </div>
+        
         {openModal && <Modal photo={photo} closeModal={setOpenModal} />}
       </>
     );
@@ -127,7 +128,6 @@ const Card = (photo) => {
               <DownloadForOfflineIcon onClick={handleDownload} 
                 sx={{ fontSize: 40, color: "white", cursor: "pointer" }} 
               />
-              {/* DownloadForOfflineIcon */}
             </div>
 
             <div className="heart-icon">

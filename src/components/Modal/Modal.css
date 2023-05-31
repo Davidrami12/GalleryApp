@@ -56,7 +56,7 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
-  color: white;
+  color: #F44336;
   transition: 0.3s;
 
   position: absolute;
@@ -69,6 +69,14 @@
   transition: 0.3s;
 }
 
+.edit-button{
+  cursor: pointer;
+  font-size: 18px;
+  padding: 5px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+}
+
 .input-modal {
   margin: 0 1rem;
   max-width: 200px;
@@ -78,6 +86,10 @@
 
 .input-modal:focus {
   outline: none;
+}
+
+.input-modal::placeholder{
+  color: black;
 }
 
 .modalContainer .body {

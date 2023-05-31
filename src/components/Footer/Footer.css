@@ -5,12 +5,16 @@
     z-index: 1;
     margin: 0 auto;
     background-color: #50586C;
+    width: 100%;
 }
 
 .footer p{
     display: flex;
     justify-content: center;
-    width: 100vw;
+    margin: 0 auto;
+    width: 90%;
     color: white;
     padding: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
