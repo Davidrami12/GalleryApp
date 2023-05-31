@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import SearchIcon from '@mui/icons-material/Search';
-import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
+import HorizontalRuleRoundedIcon from '@mui/icons-material/HorizontalRuleRounded';
 
 import './HeaderNav.css'
 
@@ -27,7 +27,7 @@ export const Header = () => {
                 <SearchIcon sx={{ fontSize: 28 }}/> <span>Search</span>
             </Link>
             
-            <HorizontalRuleIcon className='separator' sx={{ fontSize: 46,  transform: "rotate(90deg)"}}/>
+            <HorizontalRuleRoundedIcon className='separator' sx={{ fontSize: 46,  transform: "rotate(90deg)"}}/>
             
             <Link 
               to="/favorites" 

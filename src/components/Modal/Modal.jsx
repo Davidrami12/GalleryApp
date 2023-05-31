@@ -7,23 +7,33 @@ import DescriptionIcon from '@mui/icons-material/Description';
 import GetAppIcon from '@mui/icons-material/GetApp';
 import PanoramaVerticalIcon from '@mui/icons-material/PanoramaVertical';
 import PanoramaHorizontalIcon from '@mui/icons-material/PanoramaHorizontal';
+import DisabledByDefaultIcon from '@mui/icons-material/DisabledByDefault';
 
 import { editDescription } from "../../features/favorites/favoritesSlice";
 import { useDispatch } from "react-redux";
 
 import { saveAs } from "file-saver";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const Modal = ({ photo, closeModal }) => {
   const [description, setDescription] = useState('');
   const dispatch = useDispatch();
+  const modalContentEl = useRef(null); // Agregamos la referencia
 
   useEffect(() => {
     setDescription(photo.photo.description);
   }, [photo.photo]);
 
-  const downloadPhoto = (id) => {
-    saveAs(photo.photo.img, `${id}.jpg`);
+  // Close modal when click out of the modal
+  const handleClose = (e) => {
+    if (modalContentEl.current && !modalContentEl.current.contains(e.target)) {
+      closeModal(false);
+    }
+  }
+
+  const handleDownload = () => {
+    let urlToDownload = photo.photo.img;
+    saveAs(urlToDownload, `${photo.photo.id}`);
   };
 
   const handleEdit = (e) => {
@@ -33,22 +43,19 @@ const Modal = ({ photo, closeModal }) => {
 
   return (
     <>
-      <div className="modalBackground">
-        <div className="modalContainer">
-          <div className="titleCloseBtn">
-            <button onClick={() => closeModal(false)}><CloseIcon/></button>
+      <div className="main-modal" onClick={handleClose}>
+        <div className="modal-container" ref={modalContentEl}>
+          <div className="close-button-container">
+            <button className="close-button" onClick={() => closeModal(false)}>
+              <DisabledByDefaultIcon sx={{ fontSize: 42, borderRadius: '25px' }}/>
+            </button>
           </div>
-          <div className="body">
+          <div className="body" >
             <img src={photo.photo.img} alt="" 
-                style={{height: '360px',
-                width: '360px',
-                maxWidth: '100%',
-                aspectRatio: '1',
-                objectFit: 'cover',
-                objectPosition: 'center center',
-                borderRadius: '20px'}}/>
+              className="modal-img"
+                style={{}}/>
             <p>
-               <DescriptionIcon/> Description:
+               <DescriptionIcon className="icon-data"/> Edit Description:
               <input
                 className="input-modal"
                 name="description"
@@ -60,18 +67,22 @@ const Modal = ({ photo, closeModal }) => {
                 }
                 onChange={handleEdit}
                 value={description}
-                style={{padding: '5px 0'}}
+                style={{color: 'black', fontSize: '16px'}}
               />
-              <EditIcon style={{ cursor: "pointer" }} /> Edit
+              <button>
+                <EditIcon className="icon-data" style={{ cursor: "pointer" }}/>
+                Edit
+              </button>
+              
             </p>
-            <p><PanoramaHorizontalIcon/> Width: {photo.photo.width}px</p>
-            <p><PanoramaVerticalIcon/> Height: {photo.photo.height}px</p>
-            <p><FavoriteBorderIcon/> Likes: {photo.photo.likes}</p>
-            <p><DateRangeIcon/> Date saved: {photo.photo.dateImported}</p>
+            <p><PanoramaHorizontalIcon className="icon-data"/> Width: {photo.photo.width}px</p>
+            <p><PanoramaVerticalIcon className="icon-data"/> Height: {photo.photo.height}px</p>
+            <p><FavoriteBorderIcon className="icon-data"/> Likes: {photo.photo.likes}</p>
+            <p><DateRangeIcon className="icon-data"/> Date saved: {photo.photo.dateImported}</p>
             <p
               style={{ cursor: "pointer", textDecoration: "none", color: "black" }}
-              onClick={() => downloadPhoto(photo.photo.description)}>
-              <GetAppIcon/> Download
+              onClick={() => handleDownload()}>
+              <GetAppIcon className="icon-data"/> Download image
             </p>
           </div>
         </div>

@@ -69,7 +69,7 @@ const Card = (photo) => {
     saveAs(urlToDownload, `${photo.photo.id}`);
   };
 
-  //Gallery Render
+  // Favorites Render
   if (photo.callFrom === "gallery") {
     const description = photo.photo.description ? photo.photo.description.charAt(0).toUpperCase() + photo.photo.description.slice(1) : "";
 
@@ -77,7 +77,7 @@ const Card = (photo) => {
       <>
         <div className="grid-img-container" key={photo.photo.id}>
           <img
-            className="grid-img"
+            className="grid-img-favorites"
             src={photo.photo.img}
             alt=""
           />
@@ -102,11 +102,11 @@ const Card = (photo) => {
           </div>
 
           <div className="img-data">
-            <p><PanoramaHorizontalIcon/> Width: {photo.photo.width}px</p>
-            <p><PanoramaVerticalIcon/> Height: {photo.photo.height}px</p>
-            <p><FavoriteBorderIcon/> Likes: {photo.photo.likes}</p>
-            <p><DateRangeIcon/> Date saved: {photo.photo.dateImported}</p>
-            <p><DescriptionIcon/> {description}</p>
+            <p><PanoramaHorizontalIcon className="icon-data"/> <u>Width:</u> {photo.photo.width}px</p>
+            <p><PanoramaVerticalIcon className="icon-data"/> <u>Height:</u> {photo.photo.height}px</p>
+            <p><FavoriteBorderIcon className="icon-data"/> <u>Likes:</u> {photo.photo.likes}</p>
+            <p><DateRangeIcon className="icon-data"/> <u>Date saved:</u> {photo.photo.dateImported}</p>
+            <p><DescriptionIcon className="icon-data"/> {description}</p>
           </div>
           
         </div>
@@ -114,12 +114,12 @@ const Card = (photo) => {
       </>
     );
   } else {
-    //Explorer Render
+    // Search Render
     return (
       <>
         <div className="grid-img-container" key={photo.photo.id}>
           <img
-            className="grid-img"
+            className="grid-img-search"
             src={photo.photo.urls.regular}
             alt=""
           />

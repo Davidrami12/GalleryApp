@@ -10,6 +10,7 @@ import Card from "../Card/Card";
 import ImageSearchIcon from "@mui/icons-material/ImageSearch";
 import SearchIcon from "@mui/icons-material/Search";
 
+
 //Redux
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
@@ -81,20 +82,16 @@ export const Favorites = () => {
               placeholder="Search descriptions"
               onChange={(e) => setSearchTerm(e.target.value)}
             />
+            <select
+              className="select-filter"
+              onChange={handleSelect}> order by
+                <option value="width">By width</option>
+                <option value="height">By height</option>
+                <option value="likes">By likes</option>
+                <option value="date">By date</option>
+            </select>
           </div>
         </div>
-
-        <div className="order-favs">
-          <select
-            className="select"
-            onChange={handleSelect}> ORDER BY
-              <option value="date">By date</option>
-              <option value="width">By width</option>
-              <option value="height">By height</option>
-              <option value="likes">By likes</option>
-          </select>
-        </div>
-        
       </div>
 
 
@@ -108,7 +105,7 @@ export const Favorites = () => {
           ) : (
             <div className="loading">
               <p>No images added to favorites yet</p>
-              <p>Add from <Link to="/search">Search</Link></p>
+              <p>Add from <Link to="/search"><SearchIcon className="icon-data"/>Search</Link></p>
               <img className="no-image" src={noImage} alt="" />
             </div>
             

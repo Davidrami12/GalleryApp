@@ -31,15 +31,12 @@
 
 .App {
   text-align: center;
-  
 }
 
 body{
   background-color: #DCE2F0;
   overflow: overlay; /* transparent scrollbar */
 }
-
-
 
 .App-logo {
   height: 40vmin;

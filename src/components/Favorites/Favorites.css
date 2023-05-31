@@ -112,6 +112,22 @@
   border: none;
 }
 
+.select-filter{
+  margin: 0;
+  cursor: pointer;
+  position: absolute;
+  right: 0.4rem;
+  bottom: 0.25rem;
+  border-radius: 10px;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  line-height: 1.25rem;
+  transition: 0.5s;
+  background-color: white;
+  border: none;
+  outline: 0;
+}
+
 
 .main-content {
   /* min-height: 100vh; 
@@ -150,6 +166,15 @@
 
 .grid-img:hover {
   border: 1.5px solid white;
+}
+
+.loading a{
+  color: #82B1FF;
+  text-shadow: none;
+}
+
+.loading a:hover{
+  color: black;
 }
 
 @media (max-width: 1200px) {
@@ -221,7 +246,7 @@
       display: grid;
       justify-content: center;
       grid-template-columns: repeat(auto-fill, 1fr);
-      gap: 1rem;
+      gap: 2rem;
   }
 
   .grid-img {

@@ -60,27 +60,18 @@
 }
 
 .submit-button{
-  tab-size: 4;
-  border: 0 solid #e5e7eb;
-  box-sizing: border-box;
   margin: 0;
-  text-transform: none;
   cursor: pointer;
   position: absolute;
-  right: .625rem;
-  bottom: .625rem;
+  right: 0.4rem;
+  bottom: 0.25rem;
   border-radius: 10px;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-bottom: .5rem;
-  padding-top: .5rem;
-  font-size: 1rem;
+  padding: 0.75rem;
+  font-size: 1.2rem;
   line-height: 1.25rem;
-  font-weight: 500;
   transition: 0.5s;
   background-color: white;
   border: none;
-  outline: 0;
 }
 
 .submit-button:hover{
@@ -133,7 +124,12 @@
   align-items: center;
   text-align: center;
   letter-spacing: 1px;
-  margin-top: 100px;
+  margin-top: 50px;
+}
+
+.no-image{
+  max-width: 320px;
+  margin-top: 20px;
 }
 
 
