@@ -16,61 +16,44 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
 export const Favorites = () => {
-  const [gallery, setGallery] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [orderBy, setOrderBy] = useState("");
   const favourites = useSelector((state) => state.favourite);
 
-  useEffect(() => {
-    setGallery(favourites);
-  }, [favourites]);
-
   const handleSelect = (e) => {
-    if (e.target.value === "date") {
-      setOrderBy("date");
-    } else if (e.target.value === "width") {
-      setOrderBy("width");
-    } else if (e.target.value === "height") {
-      setOrderBy("height");
-    } else if (e.target.value === "likes") {
-      setOrderBy("likes");
-    }
+    setOrderBy(e.target.value);
   };
 
-  useEffect(() => {
-    let filteredPhotos;
-    if (searchTerm.length) {
-      filteredPhotos = favourites.filter(
-        (p) =>
-          p.description &&
-          p.description.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-    } else {
-      filteredPhotos = favourites;
-    }
-    const arrOrderedPhotos = [...filteredPhotos];
+  let gallery = [...favourites];
 
-    switch (orderBy) {
-      case "width":
-        arrOrderedPhotos.sort((a, b) => b.width - a.width);
-        break;
-      case "height":
-        arrOrderedPhotos.sort((a, b) => b.height - a.height);
-        break;
-      case "likes":
-        arrOrderedPhotos.sort((a, b) => b.likes - a.likes);
-        break;
-      case "date":
-        arrOrderedPhotos.sort((a, b) => b.date - a.date);
+  if (searchTerm.length) {
+    gallery = gallery.filter(
+      (p) =>
+        p.description &&
+        p.description.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }
+
+  // Filter fav images
+  switch (orderBy) {
+    case "width":
+      gallery.sort((a, b) => b.width - a.width);
       break;
-    }
-    setGallery(arrOrderedPhotos);
-  }, [searchTerm, orderBy, favourites]);
+    case "height":
+      gallery.sort((a, b) => b.height - a.height);
+      break;
+    case "likes":
+      gallery.sort((a, b) => b.likes - a.likes);
+      break;
+    case "date":
+      gallery.sort((a, b) => b.date - a.date);
+      break;
+  }
+
 
   return (
     <div className="favorites-container">
       <div className="search-favs">
-
         <div id="search-form">
           <div className="input-group">
             <div className="icon-container">

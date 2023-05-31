@@ -41,7 +41,6 @@ const Card = (photo) => {
       const dataToSave = {
         id: data.photo.id,
         description: data.photo.alt_description,
-        // downloads: data.photo.downloads,
         links: data.photo.links.download,
         img: data.photo.urls.regular,
         likes: data.photo.likes,
@@ -69,7 +68,7 @@ const Card = (photo) => {
     saveAs(urlToDownload, `${photo.photo.id}`);
   };
 
-  // Favorites Render
+  // Card for Favorites
   if (photo.callFrom === "gallery") {
     const description = photo.photo.description ? photo.photo.description.charAt(0).toUpperCase() + photo.photo.description.slice(1) : "";
 
@@ -114,7 +113,7 @@ const Card = (photo) => {
       </>
     );
   } else {
-    // Search Render
+    // Card for Search
     return (
       <>
         <div className="grid-img-container" key={photo.photo.id}>
@@ -124,11 +123,6 @@ const Card = (photo) => {
             alt=""
           />
           <div className="grid-img__info-icon">
-            {/*<p>
-              {photo.photo.description
-                ? photo.photo.description
-                : photo.photo.alt_description}{" "}
-              </p>*/}
             <div className="heart-icon">
               <DownloadForOfflineIcon onClick={handleDownload} 
                 sx={{ fontSize: 40, color: "white", cursor: "pointer" }} 
@@ -139,7 +133,7 @@ const Card = (photo) => {
             <div className="heart-icon">
               <FavoriteIcon
                 className=""
-                sx={{ fontSize: 40, transition: "0s", color: isFavourite ? "red" : "white", cursor: "pointer" }}
+                sx={{ fontSize: 40, color: isFavourite ? "red" : "white", cursor: "pointer" }}
                 onClick={() => {
                   handleSaveOrDelete(photo);
                 }}

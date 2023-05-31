@@ -3,20 +3,25 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const getPhotos = createAsyncThunk(
   "photos/getPhotos",
 
-  async ({ value }) => {
-    const API_KEY = "lReeBLBs6T5IndOJkM7ptm4_2wBaK6re5Bb32GKhIzo";
-    const URL = `https://api.unsplash.com/search/photos/?client_id=${API_KEY}&query=${value}&per_page=24`;
-    const URL_RANDOM = `https://api.unsplash.com/photos/random/?client_id=${API_KEY}&count=18`;
+  async ({ value }, { errorFetch }) => {
+    try {
+      const API_KEY = "lReeBLBs6T5IndOJkM7ptm4_2wBaK6re5Bb32GKhIzo";
+      const URL = `https://api.unsplash.com/search/photos/?client_id=${API_KEY}&query=${value}&per_page=24`;
+      const URL_RANDOM = `https://api.unsplash.com/photos/random/?client_id=${API_KEY}&count=18`;
 
-    if (value && value !== "") {
-      const response = await fetch(URL);
-      const data = await response.json();
-      return [...data.results];
+      // Auto generate random images when there is no data to search
+      if (value && value !== "") {
+        const response = await fetch(URL);
+        const data = await response.json();
+        return [...data.results];
 
-    } else {
-      const response = await fetch(URL_RANDOM);
-      const data = await response.json();
-      return [...data];
+      } else {
+        const response = await fetch(URL_RANDOM);
+        const data = await response.json();
+        return [...data];
+      }
+    } catch (err) {
+      return errorFetch(err.message);
     }
   }
 );
@@ -36,9 +41,9 @@ export const searchSlice = createSlice({
         state.photos = action.payload;
         state.status = 'fulfilled';
     },
-    [getPhotos.rejected] : (state) => {
-        state.status = 'rejected';
-        console.log ('Error while fetching data from API ')
+    [getPhotos.rejected] : (state, action) => {
+      state.status = 'rejected';
+      console.log ('Error while fetching data from API: ', action.payload)
     }
   },
 });

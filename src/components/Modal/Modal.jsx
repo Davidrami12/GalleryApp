@@ -42,24 +42,23 @@ const Modal = ({ photo, closeModal }) => {
   };
 
   return (
-    <>
-      <div className="main-modal" onClick={handleClose}>
-        <div className="modal-container" ref={modalContentEl}>
-          <div className="close-button-container">
-            <button className="close-button" onClick={() => closeModal(false)}>
-              <DisabledByDefaultIcon sx={{ fontSize: 42, borderRadius: '25px' }}/>
-            </button>
-          </div>
-          <div className="body" >
-            <img src={photo.photo.img} alt="" 
-              className="modal-img"
-                style={{}}/>
+    <div className="main-modal" onClick={handleClose}>
+      <div className="modal-container" ref={modalContentEl}>
+        <div className="close-button-container">
+          <button className="close-button" onClick={() => closeModal(false)}>
+            <DisabledByDefaultIcon sx={{ fontSize: 42, borderRadius: '25px' }}/>
+          </button>
+        </div>
+        <div className="body" >
+          <img src={photo.photo.img} alt="" className="modal-img"/>
+          <div className="modal-data">
             <p>
-               <DescriptionIcon className="icon-data"/> Edit Description:
+              <DescriptionIcon className="icon-data"/> Edit Description:
               <input
                 className="input-modal"
                 name="description"
                 type="text"
+                maxlength="50"
                 placeholder={
                   photo.photo.description
                     ? photo.photo.description
@@ -87,7 +86,7 @@ const Modal = ({ photo, closeModal }) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

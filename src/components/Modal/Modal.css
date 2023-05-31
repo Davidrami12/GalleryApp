@@ -33,6 +33,17 @@
   border-radius: 12px;
 }
 
+.modal-data{
+  padding: 20px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: left;
+  background: white;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  font-size: 18px;
+}
+
 
 .close-button-container {
   display: flex;

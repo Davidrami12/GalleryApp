@@ -15,24 +15,14 @@ export const Search = () => {
   const favourites = useSelector((state) => state.favourite);
 
   useEffect(() => {
-    let repeatPhotosArray = [];
-    let sw = false;
+    const favouriteIds = favourites.reduce((acc, fav) => {
+      acc[fav.id] = true;
+      return acc;
+    }, {});
 
-    for (let index = 0; index < photoDataResult.length; index++) {
-      sw = false;
-
-      for (let i = 0; i < favourites.length; i++) {
-        if (photoDataResult[index].id === favourites[i].id) {
-          sw = true;
-          break;
-        }
-      }
-      sw === true
-        ? repeatPhotosArray.push(true)
-        : repeatPhotosArray.push(false);
-      setPhRepeat(repeatPhotosArray);
-    }
-  }, [photoDataResult]);
+    const repeatPhotosArray = photoDataResult.map((photo) => favouriteIds[photo.id] || false);
+    setPhRepeat(repeatPhotosArray);
+  }, [photoDataResult, favourites]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
