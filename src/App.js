@@ -13,7 +13,7 @@ import { Favorites } from './components/Favorites/Favorites';
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter basename='/GalleryApp'>
         <Header/>
         <Routes>
           <Route path="/" element={<Home/>}/>

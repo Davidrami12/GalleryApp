@@ -69,7 +69,7 @@ const Card = (photo) => {
   };
 
   // Card for Favorites
-  if (photo.callFrom === "gallery") {
+  if (photo.callFrom === "favorites") {
     const description = photo.photo.description ? photo.photo.description.charAt(0).toUpperCase() + photo.photo.description.slice(1) : "";
 
     return (

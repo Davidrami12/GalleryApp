@@ -83,7 +83,7 @@ export const Favorites = () => {
         <div className="main-content__grid">
           {gallery && gallery.length ? (
             gallery.map((photo, index) => (
-              <Card photo={photo} callFrom="gallery" key={index} />
+              <Card photo={photo} callFrom="favorites" key={index} />
             ))
           ) : (
             <div className="loading">

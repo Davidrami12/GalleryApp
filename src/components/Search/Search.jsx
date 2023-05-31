@@ -13,6 +13,8 @@ export const Search = () => {
   const dispatch = useDispatch();
   const photoDataResult = useSelector(selectPhotos);
   const favourites = useSelector((state) => state.favourite);
+  const searchStatus = useSelector((state) => state.search.status);
+
 
   useEffect(() => {
     const favouriteIds = favourites.reduce((acc, fav) => {
@@ -52,21 +54,25 @@ export const Search = () => {
 
       <div className="main-content">
         <div className="main-content__grid">
-          {photoDataResult && photoDataResult.length ? (
+          {searchStatus === 'loading' ? (
+            // Display Loading component when API request status = loading
+            <Loading />
+          ) : photoDataResult && photoDataResult.length ? (
             photoDataResult.map((photo, index) => (
+              // Show search Card component when data matches a search
               <Card
                 key={index}
                 photo={photo}
-                callFrom="explorer"
+                callFrom="search"
                 phRepeat={phRepeat[index]}
                 dateImported={new Date().getTime()}
               />
             ))
           ) : (
+            // Show when there is no input to search
             <div className="loading">
               <p>No images to display</p>
               <p>Search something!</p>
-              <Loading />
               <img className="no-image" src={noImage} alt="" />
             </div>
           )}
