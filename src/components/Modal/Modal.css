@@ -69,17 +69,39 @@
   transition: 0.3s;
 }
 
+.edit-button-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .edit-button{
+  border-radius: 10px;
+  margin: 0 auto;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 16px;
   padding: 5px;
   padding-bottom: 10px;
   padding-right: 10px;
+  background-color: black;
+  color: white;
+  border: none;
+  transition: 0.4s;
+}
+
+.edit-button:hover{
+  transition: 0.2s;
+  background-color: gray;
+}
+
+.input-modal-container{
+  width: 500px;
 }
 
 .input-modal {
-  margin: 0 1rem;
-  max-width: 200px;
+  margin: 0.5rem 1rem 0.5rem 1rem;
+  min-width: 350px;
   border:none;
   border-bottom: 1px solid black;
 }
@@ -175,9 +197,9 @@
 }
 
 @media(max-width: 480px) {
-  .input-modal {
+  /*.input-modal {
     margin: 0 .5rem;
     max-width: 120px;
-  }
+  }*/
 }
 

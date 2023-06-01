@@ -81,23 +81,21 @@ const Card = (photo) => {
             alt=""
           />
           <div className="grid-img__info-icon">
-            <DownloadForOfflineIcon
-              className="heart-icon"
-              sx={{ fontSize: 40, color: "white", cursor: "pointer" }}
-              onClick={handleDownload}
-            />
-            
+            <div className="icons">
+              <DownloadForOfflineIcon
+                sx={{ fontSize: 40, color: "white", cursor: "pointer" }}
+                onClick={handleDownload}/>
+            </div>
+            <div className="icons">
             <BorderColorIcon
-              className="heart-icon"
               sx={{ fontSize: 40, color: "white", cursor: "pointer" }}
-              onClick={() => setOpenModal(true)}
-            />
-
+              onClick={() => setOpenModal(true)}/>
+            </div>
+            <div className="icons">
             <HeartBrokenIcon
-              className="heart-icon"
               sx={{ fontSize: 40, color: "white", cursor: "pointer" }}
-              onClick={() => handleDelete(photo, photo.photo.id)}
-            />
+              onClick={() => handleDelete(photo, photo.photo.id)}/>
+            </div>
           </div>
 
           <div className="img-data">
@@ -124,13 +122,13 @@ const Card = (photo) => {
             alt=""
           />
           <div className="grid-img__info-icon">
-            <div className="heart-icon">
+            <div className="icons">
               <DownloadForOfflineIcon onClick={handleDownload} 
                 sx={{ fontSize: 40, color: "white", cursor: "pointer" }} 
               />
             </div>
 
-            <div className="heart-icon">
+            <div className="icons">
               <FavoriteIcon
                 className=""
                 sx={{ fontSize: 40, color: isFavourite ? "red" : "white", cursor: "pointer" }}

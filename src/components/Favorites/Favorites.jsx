@@ -9,6 +9,11 @@ import Card from "../Card/Card";
 //Icons from MUI
 import ImageSearchIcon from "@mui/icons-material/ImageSearch";
 import SearchIcon from "@mui/icons-material/Search";
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 
 //Redux
@@ -20,14 +25,14 @@ export const Favorites = () => {
   const [orderBy, setOrderBy] = useState("");
   const favourites = useSelector((state) => state.favourite);
 
-  const handleSelect = (e) => {
-    setOrderBy(e.target.value);
+  const handleSelect = (event) => {
+    setOrderBy(event.target.value);
   };
 
-  let gallery = [...favourites];
+  let favoritesImages = [...favourites];
 
   if (searchTerm.length) {
-    gallery = gallery.filter(
+    favoritesImages = favoritesImages.filter(
       (p) =>
         p.description &&
         p.description.toLowerCase().includes(searchTerm.toLowerCase())
@@ -37,19 +42,18 @@ export const Favorites = () => {
   // Filter fav images
   switch (orderBy) {
     case "width":
-      gallery.sort((a, b) => b.width - a.width);
+      favoritesImages.sort((a, b) => b.width - a.width);
       break;
     case "height":
-      gallery.sort((a, b) => b.height - a.height);
+      favoritesImages.sort((a, b) => b.height - a.height);
       break;
     case "likes":
-      gallery.sort((a, b) => b.likes - a.likes);
+      favoritesImages.sort((a, b) => b.likes - a.likes);
       break;
     case "date":
-      gallery.sort((a, b) => b.date - a.date);
+      favoritesImages.sort((a, b) => b.date - a.date);
       break;
   }
-
 
   return (
     <div className="favorites-container">
@@ -63,16 +67,34 @@ export const Favorites = () => {
               type="text"
               className="search-input"
               placeholder="Search descriptions"
+              maxLength={25}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <select
+            {/*<select
               className="select-filter"
-              onChange={handleSelect}> order by
+              onChange={handleSelect}>
                 <option value="width">By width</option>
                 <option value="height">By height</option>
                 <option value="likes">By likes</option>
                 <option value="date">By date</option>
-            </select>
+              </select>*/}
+              <div className="select-container">
+                <FormControl size='small' sx={{minWidth: 100}} className="select-filter">
+                  <InputLabel id="filter-label">Filter</InputLabel>
+                  <Select
+                  MenuProps={{ disableScrollLock: true }} 
+                    labelId="filter-label"
+                    label="filter"
+                    onChange={handleSelect}
+                  >
+                    <MenuItem value='date' className="options">By date</MenuItem>
+                    <MenuItem value='width' className="options">By width</MenuItem>
+                    <MenuItem value='height' className="options">By height</MenuItem>
+                    <MenuItem value='likes' className="options">By likes</MenuItem>
+                  </Select>
+                </FormControl>
+              </div>
+            
           </div>
         </div>
       </div>
@@ -81,8 +103,8 @@ export const Favorites = () => {
 
       <div className="main-content">
         <div className="main-content__grid">
-          {gallery && gallery.length ? (
-            gallery.map((photo, index) => (
+          {favoritesImages && favoritesImages.length ? (
+            favoritesImages.map((photo, index) => (
               <Card photo={photo} callFrom="favorites" key={index} />
             ))
           ) : (

@@ -19,7 +19,7 @@ const Modal = ({ photo, closeModal }) => {
   const [description, setDescription] = useState('');
   const [inputValue, setInputValue] = useState(''); // Nuevo estado para el valor del input
   const dispatch = useDispatch();
-  const modalContentEl = useRef(null); // Agregamos la referencia
+  const modalContent = useRef(null); // Agregamos la referencia
 
   useEffect(() => {
     setDescription(photo.photo.description);
@@ -28,7 +28,7 @@ const Modal = ({ photo, closeModal }) => {
 
   // Close modal when click out of the modal
   const handleClose = (e) => {
-    if (modalContentEl.current && !modalContentEl.current.contains(e.target)) {
+    if (modalContent.current && !modalContent.current.contains(e.target)) {
       closeModal(false);
     }
   }
@@ -40,6 +40,7 @@ const Modal = ({ photo, closeModal }) => {
   const handleEdit = () => {
     dispatch(editDescription({ id: photo.photo.id, desc: inputValue }));
     setDescription(inputValue); // Actualiza la descripción
+    closeModal(false);
   };
 
   const handleDownload = () => {
@@ -49,7 +50,7 @@ const Modal = ({ photo, closeModal }) => {
 
   return (
     <div className="main-modal" onClick={handleClose}>
-      <div className="modal-container" ref={modalContentEl}>
+      <div className="modal-container" ref={modalContent}>
         <div className="close-button-container">
           <button className="close-button" onClick={() => closeModal(false)}>
             <DisabledByDefaultIcon sx={{ fontSize: 42, borderRadius: '30px' }}/>
@@ -59,22 +60,28 @@ const Modal = ({ photo, closeModal }) => {
           <img src={photo.photo.img} alt="" className="modal-img"/>
           <div className="modal-data">
             <p>
-              <DescriptionIcon className="icon-data"/> Edit Description:
+              <DescriptionIcon className="icon-data"/> Edit new description:
+            </p>
+            <div className="input-modal-container">
               <input
                 className="input-modal"
                 name="description"
                 type="text"
-                maxlength="50"
+                maxlength="40"
                 placeholder={photo.photo.description ? photo.photo.description : "This image has no description"}
-                onChange={handleInputChange} // Cambiado a handleInputChange
-                value={inputValue} // Cambiado a inputValue
+                onChange={handleInputChange}
+                value={inputValue}
                 style={{color: 'black', fontSize: '16px'}}
               />
+            </div>
+            <div className="edit-button-container">
               <button className="edit-button" onClick={handleEdit}>
-                <EditIcon className="icon-data"/> Save edit
+                <EditIcon sx={{ fontSize: 20}} className="icon-data"/> Save edit
               </button>
+            </div>
               
-            </p>
+              
+            
             <p><PanoramaHorizontalIcon className="icon-data"/> Width: {photo.photo.width}px</p>
             <p><PanoramaVerticalIcon className="icon-data"/> Height: {photo.photo.height}px</p>
             <p><FavoriteBorderIcon className="icon-data"/> Likes: {photo.photo.likes}</p>

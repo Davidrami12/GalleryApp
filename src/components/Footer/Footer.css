@@ -1,20 +1,30 @@
 .footer{
-    padding: 1px;
-    position: fixed;
-    bottom: 0;
-    z-index: 1;
-    margin: 0 auto;
-    background-color: #50586C;
-    width: 100%;
+  padding: 1px;
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+  margin: 0 auto;
+  background-color: #50586C;
+  width: 100%;
 }
 
 .footer p{
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    width: 90%;
-    color: white;
-    padding: 12px;
-    padding-left: 10px;
-    padding-right: 10px;
+  display: flex;
+  font-size: 14px;
+  justify-content: center;
+  margin: 0 auto;
+  width: 70%;
+  color: white;
+  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.github-icon{
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  align-items: left;
+  /*top: 0px;*/
+  padding-left: 10px;
 }

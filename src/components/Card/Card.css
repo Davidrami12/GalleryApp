@@ -3,7 +3,7 @@
   box-sizing: border-box;
   position: relative;
   width: 100%;
-  box-shadow: 6px 10px 10px rgba(61, 57, 57, 0.9);
+  box-shadow: 6px 10px 10px rgba(27, 27, 27, 0.9);
   border-radius: 25px;
   outline: 0px solid black;
   transition: 0.2s;
@@ -12,7 +12,7 @@
 .grid-img-container:hover{
   box-sizing: border-box;
   border-radius: 25px;
-  outline: 5px solid black;
+  outline: 8px solid black;
   transition: 0.1s;
 }
   
@@ -26,7 +26,6 @@
   border-radius: 25px;
   transition: all 0.2s ease-in-out;
   z-index: 0;
-  box-shadow: 6px 10px 10px rgba(61, 57, 57, 0.9);
 }
 
 .grid-img-favorites {
@@ -40,41 +39,18 @@
   border-top-right-radius: 25px;
   transition: all 0.2s ease-in-out;
   z-index: 0;
-  
-}
-  
-.grid-img__icons {
-  width: 100%;
-  height: 10%;
-  padding: 0 1rem;
-  position: absolute;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  bottom: 5px;
-  left: 0;
-  /*background: rgba(0, 0, 0, 0.25);*/
-  z-index: 0;
 }
 
-.grid-img__icons p {
-  color: white;
-  max-width: 80%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow-x: clip;
-}
-
-.grid-img img {
+/*.grid-img img {
   height: 100%;
 }
 
 .grid-img:hover {
   background: rgba(0, 0, 0, 0.25);
   border: 4.5px solid white;
-}
+}*/
 
-.heart-icon{
+.icons{
   filter: drop-shadow(7px 7px 7px #000);
   background-color: transparent;
   padding: 8px;
@@ -82,7 +58,7 @@
   transition: 0.5s;
 }
 
-.heart-icon:hover{
+.icons:hover{
   filter: drop-shadow(5px 5px 10px #000);
   background-color: rgba(0, 0, 0, 0.25);
   border-radius: 50%;
@@ -108,10 +84,10 @@
 }
 
 
-@media (max-width: 768px) {
-
+@media (max-width: 500px) {
   .grid-img-container {
     margin: 0 auto;
     max-width: 300px;
+    max-height:600px;
   }
 }

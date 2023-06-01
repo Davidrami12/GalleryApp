@@ -42,6 +42,7 @@ export const Search = () => {
             type="text"
             className="search-input"
             placeholder="Explore images..."
+            maxLength={30}
             value={value}
             onChange={(e) => setValue(e.target.value)}
           />
