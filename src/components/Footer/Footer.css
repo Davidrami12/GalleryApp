@@ -9,22 +9,31 @@
 }
 
 .footer p{
-  display: flex;
-  font-size: 14px;
   justify-content: center;
   margin: 0 auto;
-  width: 70%;
-  color: white;
-  padding: 10px;
+  padding: 12px;
   padding-left: 10px;
   padding-right: 10px;
+  display : flex;
+  align-items : center;
 }
 
-.github-icon{
-  display: inline-block;
-  position: relative;
-  vertical-align: middle;
-  align-items: left;
-  /*top: 0px;*/
-  padding-left: 10px;
+.footer a{
+  font-size: 14px;
+  color: white;
+  display : flex;
+  align-items : center;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.footer a:hover{
+  color: black;
+  box-shadow: inset 400px 0 0 0 #82B1FF;
+}
+
+@media only screen and (max-width: 500px) {
+  .footer a{
+    font-size: 10px;
+  }
 }

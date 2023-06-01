@@ -12,7 +12,7 @@
 }
   
 .modal-container {
-  max-width: 420px;
+  max-width: 340px;
   border-radius: 12px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.85) 0px 5px 15px;
@@ -34,9 +34,9 @@
 }
 
 .modal-data{
-  padding: 20px;
+  padding: 5px;
   padding-top: 8px;
-  padding-bottom: 8px;
+  padding-bottom: 0px;
   text-align: left;
   background: white;
   border-bottom-left-radius: 25px;
@@ -44,6 +44,18 @@
   font-size: 18px;
 }
 
+.old-description{
+  background-color: lightgrey;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.new-description{
+  margin-top: 10px;
+  background-color: lightgreen;
+  border-radius: 10px;
+  padding: 10px;
+}
 
 .close-button-container {
   display: flex;
@@ -56,9 +68,8 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
-  color: #F44336;
+  color: #ef817a;
   transition: 0.3s;
-
   position: absolute;
   top: 10px;
   right: 5px;
@@ -87,12 +98,41 @@
   background-color: black;
   color: white;
   border: none;
-  transition: 0.4s;
+  transition: 0.3s;
 }
 
 .edit-button:hover{
+  transition: 0.1s;
+  background-color: white;
+  color: black;
+}
+
+.download-button-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 18px;
+}
+
+.download-button{
+  border-radius: 10px;
+  margin: 0 auto;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 5px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  background-color: #5695f9;
+  
+  color: white;
+  border: none;
+  transition: 0.4s;
+}
+
+.download-button:hover{
   transition: 0.2s;
-  background-color: gray;
+  background-color: #136dff;
 }
 
 .input-modal-container{
@@ -100,10 +140,13 @@
 }
 
 .input-modal {
-  margin: 0.5rem 1rem 0.5rem 1rem;
-  min-width: 350px;
+  color: black;
+  margin: 0.5rem 0rem 0.5rem 0rem;
+  min-width: 305px;
   border:none;
   border-bottom: 1px solid black;
+  font-size: 16px;
+  background:transparent;
 }
 
 .input-modal:focus {
@@ -111,95 +154,16 @@
 }
 
 .input-modal::placeholder{
-  color: black;
+  color: #747474;
+  font-weight: 100;
 }
 
-.modalContainer .body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  font-size: 1.5rem;
-  text-align: center;
-  padding: 1rem;
-}
-
-.modalContainer .body p{
-  padding: 0;
-}
-
-.modalContainer .footer {
-  flex: 20%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modalContainer .footer button {
-  width: 150px;
-  height: 45px;
-  margin: 10px;
-  border: none;
-  background-color: crimson;
-  color: white;
-  border-radius: 8px;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-@media(max-width: 756px) {
+@media only screen and  (max-width: 500px) {
   .modal-container {
-    /*max-width: 450px;
-    max-height: 500px;*/
-  }
-  
-  .titleCloseBtn {
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .titleCloseBtn button {
-    background-color: transparent;
-    border: none;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-  
-  .modalContainer .body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    font-size: 1.5rem;
-    text-align: center;
-    padding: 1rem;
+    max-width: 300px;
   }
 
-  p{
-    font-size: 1.2rem;
+  .input-modal {
+    min-width: 265px;
   }
-
-  .modalContainer .body p{
-    padding: .3rem 0;
-  }
-  
-  .modalContainer .footer {
-    flex: 20%;
-  }
-  
-  .modalContainer .footer button {
-    width: 30%;
-    height: 35px;
-    margin: 5px;
-    font-size: 1.2rem;
-  }
-
 }
-
-@media(max-width: 480px) {
-  /*.input-modal {
-    margin: 0 .5rem;
-    max-width: 120px;
-  }*/
-}
-

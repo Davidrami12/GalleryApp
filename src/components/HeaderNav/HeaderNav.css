@@ -1,110 +1,116 @@
 .header{
-    display: flex;
-    background-color: #50586C;
-    color: white;
-    padding: 1rem;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 3;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  background-color: #50586C;
+  color: white;
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 3;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .header-container{
-    margin-left: 0rem;
-    margin-right: 0rem;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: -12px;
-    margin-right: 2rem;
+  margin-left: 0rem;
+  margin-right: 0rem;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -12px;
+  margin-right: 2rem;
 }
 
 .home{
-    margin-top: 100px;
+  margin-top: 100px;
 }
 
 .header-title{
-    font-size: 32px;
-    text-decoration: none;
-    transition: 0.5s;
-    vertical-align: middle;
-    text-align: center;
-    
+  font-size: 32px;
+  text-decoration: none;
+  transition: 0.5s;
+  vertical-align: middle;
+  text-align: center;
+  filter: drop-shadow(5px 5px 6px #000);
+  
 }
 
 .nav-links{
-    margin-top: 5px;
+  margin-top: 5px;
 }
 
 a{
-    color: white;
-    transition: 0.5s;
+  color: white;
+  transition: 0.5s;
 }
 
 a:hover{
-    color: black;
-    transition: 0.3s;
+  color: black;
+  transition: 0.3s;
 }
 
 .header-link{
-    padding: 0px;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 34px;
+  padding: 0px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 34px;
 }
 
 #search-link{
-    margin-right: -12px;
+  margin-right: -12px;
 }
 
 .active-link{
-    color: #82B1FF;
+  color: #82B1FF;
 }
 
 .separator{
-    margin-bottom: -16px;
-    padding: 6px;
+  margin-bottom: -10px;
+  padding: 0px;
+  filter: drop-shadow(-7px 7px 7px #000);
+}
+
+.search-icon{
+  filter: drop-shadow(7px 5px 5px #000000);
+}
+
+.fav-icon{
+  filter: drop-shadow(5px 5px 10px #000);
 }
 
 span{
-    display: none;
+  display: none;
 }
 
-
-
 @media only screen and (min-width: 860px) {
-    
+  .header-container{
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
 
-    .header-container{
-        margin-left: 2rem;
-        margin-right: 2rem;
-    }
+  .header-title{
+    font-size: 56px;
+  }
 
-    .header-title{
-        font-size: 56px;
-    }
+  .nav-links{
+    margin-top: -5px;
+  }
 
-    .nav-links{
-        margin-top: -5px;
-    }
+  .header-link{
+    padding: 12px;
+  }
 
-    .header-link{
-        padding: 12px;
-    }
+  #search-link{
+    margin-right: 0px;
+  }
+  
+  .separator{
+    margin-bottom: -22px;
+    padding: 12px;
+  }
 
-    #search-link{
-        margin-right: 0px;
-    }
-    
-    .separator{
-        margin-bottom: -22px;
-        padding: 12px;
-    }
-
-    span{
-        display: inline-block;
-    }
+  span{
+    display: inline-block;
+  }
 }

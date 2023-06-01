@@ -1,12 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { saveAs } from 'file-saver';
-import "./Card.css";
-
 //Icons from MUI
-import DeleteIcon from "@mui/icons-material/Delete";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import InfoIcon from "@mui/icons-material/Info";
-import GetAppIcon from '@mui/icons-material/GetApp';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
 import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
@@ -16,10 +9,15 @@ import DescriptionIcon from '@mui/icons-material/Description';
 import PanoramaVerticalIcon from '@mui/icons-material/PanoramaVertical';
 import PanoramaHorizontalIcon from '@mui/icons-material/PanoramaHorizontal';
 
-//Redux
-import { useDispatch, useSelector } from "react-redux";
-import { addFavourite, deleteFavourite } from "../../features/favorites/favoritesSlice";
+// Components
 import Modal from "../Modal/Modal";
+import "./Card.css";
+
+// Imports
+import React, { useState, useEffect } from "react";
+import { saveAs } from 'file-saver';
+import { useDispatch, useSelector } from "react-redux";
+import { addFavorite, deleteFavorite } from "../../features/favorites/favoritesSlice";
 
 const Card = (photo) => {
   const dispatch = useDispatch();
@@ -34,7 +32,7 @@ const Card = (photo) => {
 
   const handleSaveOrDelete = (data) => {
     if (isFavourite) {
-      dispatch(deleteFavourite(data.photo.id));
+      dispatch(deleteFavorite(data.photo.id));
       setIsFavourite(false);
     } else {
       // Save only the necessary data
@@ -48,13 +46,13 @@ const Card = (photo) => {
         height: data.photo.height,
         dateImported: new Date(data.dateImported).toLocaleDateString("es"),
       };
-      dispatch(addFavourite(dataToSave));
+      dispatch(addFavorite(dataToSave));
       setIsFavourite(true);
     }
   };
 
   const handleDelete = (photo) => {
-    dispatch(deleteFavourite(photo.photo.id));
+    dispatch(deleteFavorite(photo.photo.id));
   };
 
   const handleDownload = () => {

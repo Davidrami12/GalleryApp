@@ -1,29 +1,26 @@
-import "./Modal.css";
-import EditIcon from "@mui/icons-material/Edit";
-import CloseIcon from '@mui/icons-material/Close';
-import DateRangeIcon from '@mui/icons-material/DateRange';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+// Icons from MUI
 import DescriptionIcon from '@mui/icons-material/Description';
 import GetAppIcon from '@mui/icons-material/GetApp';
-import PanoramaVerticalIcon from '@mui/icons-material/PanoramaVertical';
-import PanoramaHorizontalIcon from '@mui/icons-material/PanoramaHorizontal';
 import DisabledByDefaultIcon from '@mui/icons-material/DisabledByDefault';
+import SaveAsIcon from '@mui/icons-material/SaveAs';
+import EditNoteIcon from '@mui/icons-material/EditNote';
 
+// Imports
 import { editDescription } from "../../features/favorites/favoritesSlice";
 import { useDispatch } from "react-redux";
-
 import { saveAs } from "file-saver";
 import { useEffect, useState, useRef } from "react";
+import "./Modal.css";
 
 const Modal = ({ photo, closeModal }) => {
   const [description, setDescription] = useState('');
-  const [inputValue, setInputValue] = useState(''); // Nuevo estado para el valor del input
+  const [inputValue, setInputValue] = useState('');
   const dispatch = useDispatch();
-  const modalContent = useRef(null); // Agregamos la referencia
+  const modalContent = useRef(null);
 
   useEffect(() => {
     setDescription(photo.photo.description);
-    setInputValue(photo.photo.description); // Actualiza el valor del input cuando cambia la foto
+    setInputValue(photo.photo.description);
   }, [photo.photo]);
 
   // Close modal when click out of the modal
@@ -34,12 +31,12 @@ const Modal = ({ photo, closeModal }) => {
   }
 
   const handleInputChange = (e) => {
-    setInputValue(e.target.value); // Actualiza el valor del input
+    setInputValue(e.target.value);
   };
 
   const handleEdit = () => {
     dispatch(editDescription({ id: photo.photo.id, desc: inputValue }));
-    setDescription(inputValue); // Actualiza la descripción
+    setDescription(inputValue);
     closeModal(false);
   };
 
@@ -59,38 +56,39 @@ const Modal = ({ photo, closeModal }) => {
         <div className="body" >
           <img src={photo.photo.img} alt="" className="modal-img"/>
           <div className="modal-data">
-            <p>
-              <DescriptionIcon className="icon-data"/> Edit new description:
-            </p>
-            <div className="input-modal-container">
-              <input
-                className="input-modal"
-                name="description"
-                type="text"
-                maxlength="40"
-                placeholder={photo.photo.description ? photo.photo.description : "This image has no description"}
-                onChange={handleInputChange}
-                value={inputValue}
-                style={{color: 'black', fontSize: '16px'}}
-              />
+            <div className="old-description">
+              <p>
+                <DescriptionIcon className="icon-data"/> <u>Current description:</u>
+              </p>
+              <p>
+                {photo.photo.description && photo.photo.description.charAt(0).toUpperCase() + photo.photo.description.slice(1)} 
+              </p>
             </div>
-            <div className="edit-button-container">
-              <button className="edit-button" onClick={handleEdit}>
-                <EditIcon sx={{ fontSize: 20}} className="icon-data"/> Save edit
+            <div className="new-description">
+              <p>
+                <EditNoteIcon className="icon-data"/> <u>New description:</u>
+              </p>
+              <div className="input-modal-container">
+                <input
+                  className="input-modal"
+                  name="description"
+                  type="text"
+                  maxLength="80"
+                  onChange={handleInputChange}
+                  placeholder="Enter description for this image"
+                />
+              </div>
+              <div className="edit-button-container">
+                <button className="edit-button" onClick={handleEdit}>
+                  <SaveAsIcon sx={{ fontSize: 22}} className="icon-data"/> Save edit
+                </button>
+              </div>
+            </div>
+            <div className="download-button-container">
+              <button button className="download-button" onClick={() => handleDownload()}>
+                <GetAppIcon className="icon-data"/> Download image
               </button>
             </div>
-              
-              
-            
-            <p><PanoramaHorizontalIcon className="icon-data"/> Width: {photo.photo.width}px</p>
-            <p><PanoramaVerticalIcon className="icon-data"/> Height: {photo.photo.height}px</p>
-            <p><FavoriteBorderIcon className="icon-data"/> Likes: {photo.photo.likes}</p>
-            <p><DateRangeIcon className="icon-data"/> Date saved: {photo.photo.dateImported}</p>
-            <p
-              style={{ cursor: "pointer", textDecoration: "none", color: "black" }}
-              onClick={() => handleDownload()}>
-              <GetAppIcon className="icon-data"/> Download image
-            </p>
           </div>
         </div>
       </div>

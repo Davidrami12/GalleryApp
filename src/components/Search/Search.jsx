@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from "react";
-import "./Search.css";
-import noImage from "../../assets/no-image.png";
+// Icons from MUI
 import SearchIcon from "@mui/icons-material/Search";
-import { useDispatch, useSelector } from "react-redux";
-import { getPhotos, selectPhotos } from "../../features/search/searchSlice";
+
+// Components
 import Card from "../Card/Card";
 import Loading from "../Loading/Loading";
+import noImage from "../../assets/no-image.png";
+import "./Search.css";
+
+// Imports
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getPhotos, selectPhotos } from "../../features/search/searchSlice";
 
 export const Search = () => {
   const [phRepeat, setPhRepeat] = useState([]);

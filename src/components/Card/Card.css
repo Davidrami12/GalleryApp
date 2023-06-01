@@ -41,15 +41,6 @@
   z-index: 0;
 }
 
-/*.grid-img img {
-  height: 100%;
-}
-
-.grid-img:hover {
-  background: rgba(0, 0, 0, 0.25);
-  border: 4.5px solid white;
-}*/
-
 .icons{
   filter: drop-shadow(7px 7px 7px #000);
   background-color: transparent;
@@ -66,7 +57,7 @@
 }
 
 .img-data{
-  height: 175px;
+  height: 200px;
   padding: 20px;
   padding-top: 8px;
   padding-bottom: 10px;
@@ -84,7 +75,7 @@
 }
 
 
-@media (max-width: 500px) {
+@media only screen and  (max-width: 500px) {
   .grid-img-container {
     margin: 0 auto;
     max-width: 300px;

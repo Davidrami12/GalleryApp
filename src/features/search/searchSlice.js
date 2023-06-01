@@ -34,20 +34,21 @@ export const searchSlice = createSlice({
     status: 'idle',
   },
   // Updating the status depending on the async API response
-  extraReducers: {
-    [getPhotos.pending] : (state) => {
-      state.status = 'pending';
-      console.log('Loading')
-    },
-    [getPhotos.fulfilled] : (state, action) => {
-      state.photos = action.payload;
-      state.status = 'fulfilled';
-      console.log('Fulfilled')
-    },
-    [getPhotos.rejected] : (state, action) => {
-      state.status = 'rejected';
-      console.log ('Error while fetching data from API: ', action.payload)
-    }
+  extraReducers: (builder) => {
+    builder
+      .addCase(getPhotos.pending, (state) => {
+        state.status = 'pending';
+        console.log('Loading');
+      })
+      .addCase(getPhotos.fulfilled, (state, action) => {
+        state.photos = action.payload;
+        state.status = 'fulfilled';
+        console.log('Fulfilled');
+      })
+      .addCase(getPhotos.rejected, (state, action) => {
+        state.status = 'rejected';
+        console.log ('Error while fetching data from API: ', action.payload);
+      });
   },
 });
 

@@ -6,7 +6,9 @@ import './Footer.css'
 export const Footer = () => {
   return (
     <div className='footer'>
-      <p>GalleryApp - made by @Davidrami12 at GitHub <GitHubIcon sx={{fontSize: 20}} className='github-icon'/></p>
+      <p>
+        <a href='https://github.com/Davidrami12/GalleryApp' target='_blank'> GalleryApp - made by  @Davidrami12 at&nbsp;<GitHubIcon sx={{fontSize: 20}} className='github-icon'/>&nbsp;GitHub</a>
+      </p>
     </div>
   )
 }
