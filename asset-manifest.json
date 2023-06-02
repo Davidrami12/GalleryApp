@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/GalleryApp/static/css/main.7a908b3c.css",
-    "main.js": "/GalleryApp/static/js/main.f6974b12.js",
+    "main.js": "/GalleryApp/static/js/main.baca1806.js",
     "static/js/787.e165633b.chunk.js": "/GalleryApp/static/js/787.e165633b.chunk.js",
     "static/media/parallax-frame1.png": "/GalleryApp/static/media/parallax-frame1.53945bd7d48622999391.png",
     "index.html": "/GalleryApp/index.html",
     "main.7a908b3c.css.map": "/GalleryApp/static/css/main.7a908b3c.css.map",
-    "main.f6974b12.js.map": "/GalleryApp/static/js/main.f6974b12.js.map",
+    "main.baca1806.js.map": "/GalleryApp/static/js/main.baca1806.js.map",
     "787.e165633b.chunk.js.map": "/GalleryApp/static/js/787.e165633b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7a908b3c.css",
-    "static/js/main.f6974b12.js"
+    "static/js/main.baca1806.js"
   ]
 }
