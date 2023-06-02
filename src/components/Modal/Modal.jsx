@@ -18,12 +18,13 @@ const Modal = ({ photo, closeModal }) => {
   const dispatch = useDispatch();
   const modalContent = useRef(null);
 
+  // Updating description and input value when the photo prop changes
   useEffect(() => {
     setDescription(photo.photo.description);
     setInputValue(photo.photo.description);
   }, [photo.photo]);
 
-  // Close modal when click out of the modal
+  // Close modal when clicking outside of it
   const handleClose = (e) => {
     if (modalContent.current && !modalContent.current.contains(e.target)) {
       closeModal(false);

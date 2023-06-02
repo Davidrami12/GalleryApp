@@ -25,6 +25,7 @@ const Card = (photo) => {
   const [openModal, setOpenModal] = useState(false);
   const [isFavourite, setIsFavourite] = useState(false);
 
+  // Effect to update isFavorite when favorites or photo changes
   useEffect(() => {
     const favourite = favourites.find((item) => item.id === photo.photo.id);
     setIsFavourite(favourite !== undefined);
@@ -57,7 +58,7 @@ const Card = (photo) => {
 
   const handleDownload = () => {
     let urlToDownload;
-    if (photo.callFrom === "gallery") {
+    if (photo.callFrom === "favorites") {
       urlToDownload = photo.photo.img;
     } else {
       urlToDownload = photo.photo.urls.full;
@@ -66,7 +67,7 @@ const Card = (photo) => {
     saveAs(urlToDownload, `${photo.photo.id}`);
   };
 
-  // Card for Favorites
+  // Return component rendering for Favorites
   if (photo.callFrom === "favorites") {
     const description = photo.photo.description ? photo.photo.description.charAt(0).toUpperCase() + photo.photo.description.slice(1) : "";
 
@@ -78,7 +79,7 @@ const Card = (photo) => {
             src={photo.photo.img}
             alt=""
           />
-          <div className="grid-img__info-icon">
+          <div className="grid-img__favs-icon">
             <div className="icons">
               <DownloadForOfflineIcon
                 sx={{ fontSize: 40, color: "white", cursor: "pointer" }}
@@ -110,7 +111,7 @@ const Card = (photo) => {
       </>
     );
   } else {
-    // Card for Search
+    // Return component rendering for Search
     return (
       <>
         <div className="grid-img-container" key={photo.photo.id}>

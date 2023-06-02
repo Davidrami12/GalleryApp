@@ -32,8 +32,7 @@
   transition: 0.5s;
   vertical-align: middle;
   text-align: center;
-  filter: drop-shadow(5px 5px 6px #000);
-  
+  filter: drop-shadow(4px 2px 6px #000);
 }
 
 .nav-links{
@@ -55,6 +54,7 @@ a:hover{
   cursor: pointer;
   text-decoration: none;
   font-size: 34px;
+  filter: drop-shadow(4px 2px 6px #000);
 }
 
 #search-link{
@@ -69,14 +69,6 @@ a:hover{
   margin-bottom: -10px;
   padding: 0px;
   filter: drop-shadow(-7px 7px 7px #000);
-}
-
-.search-icon{
-  filter: drop-shadow(7px 5px 5px #000000);
-}
-
-.fav-icon{
-  filter: drop-shadow(5px 5px 10px #000);
 }
 
 span{

@@ -2,24 +2,6 @@
   margin-top: 100px;
 }
 
-.input-group{
-  position: relative;
-}
-
-.icon-container{
-  border: 0 solid #e5e7eb;
-  box-sizing: border-box;
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  padding-left: .75rem;
-  color: white;
-  z-index: 2;
-}
-
 .select-container{
   margin: 0;
   position: absolute;
@@ -51,10 +33,6 @@
   right: 0;
   z-index: 10;
   background: transparent;
-}
-
-.grid-img:hover {
-  border: 1.5px solid white;
 }
 
 .loading a{

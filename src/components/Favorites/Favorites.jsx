@@ -26,6 +26,7 @@ export const Favorites = () => {
 
   let favoritesImages = [...favourites];
 
+  // Filter images by search term in description
   if (searchTerm.length) {
     favoritesImages = favoritesImages.filter(
       (p) =>

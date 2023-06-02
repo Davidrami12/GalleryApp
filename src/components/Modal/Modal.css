@@ -45,7 +45,7 @@
 }
 
 .old-description{
-  background-color: lightgrey;
+  background-color: #e8e8e8;
   border-radius: 10px;
   padding: 10px;
 }
@@ -160,10 +160,14 @@
 
 @media only screen and  (max-width: 500px) {
   .modal-container {
-    max-width: 300px;
+    max-width: 250px;
   }
 
   .input-modal {
-    min-width: 265px;
+    min-width: 215px;
+  }
+
+  .input-modal::placeholder{
+    font-size: 14px;
   }
 }

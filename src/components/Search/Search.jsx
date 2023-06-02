@@ -20,7 +20,7 @@ export const Search = () => {
   const favourites = useSelector((state) => state.favourite);
   const searchStatus = useSelector((state) => state.search.status);
 
-
+  // Effect to update the phRepeat array when the photos or favourites change
   useEffect(() => {
     const favouriteIds = favourites.reduce((acc, fav) => {
       acc[fav.id] = true;
