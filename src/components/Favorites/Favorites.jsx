@@ -48,6 +48,8 @@ export const Favorites = () => {
     case "date":
       favoritesImages.sort((a, b) => b.date - a.date);
       break;
+    default:
+      break;
   }
 
   return (

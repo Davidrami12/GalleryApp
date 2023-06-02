@@ -128,7 +128,6 @@ const Card = (photo) => {
 
             <div className="icons">
               <FavoriteIcon
-                className=""
                 sx={{ fontSize: 40, color: isFavourite ? "red" : "white", cursor: "pointer" }}
                 onClick={() => {
                   handleSaveOrDelete(photo);
