@@ -14,7 +14,9 @@
 GalleryApp is a powerful and dynamic web application developed using React, Redux, and Material-UI (MUI). It allows users to seamlessly browse, search, download, and favorite high-quality images sourced from the Unsplash API.
 
 ## Technologies
-
+- HTML
+- CSS
+- JavaScript
 - React
 - Redux
 - Material-UI
