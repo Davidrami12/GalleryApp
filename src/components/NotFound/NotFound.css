@@ -1,0 +1,30 @@
+.error-container{
+    margin-top: 150px;
+    width: 100%;
+}
+
+.error-info{
+    margin: 0 auto;
+    max-width: 650px;
+    padding: 1.5rem;
+}
+
+.home-link{
+    color: #82B1FF;
+    text-shadow: none;
+}
+
+.home-link:hover{
+    color: black;
+}
+
+@media only screen and (max-width: 860px) {
+    .error-container{
+        margin-top: 8rem;
+    }
+
+    .error-info{
+        width: 90%;
+        padding: 1rem;
+    }
+}

@@ -86,10 +86,10 @@ const Card = (photo) => {
                 onClick={handleDownload}/>
             </div>
             <div className="icons">
-            <BorderColorIcon
-              sx={{ fontSize: 40, color: "white", cursor: "pointer" }}
-              onClick={() => setOpenModal(true)}/>
-            </div>
+              <BorderColorIcon
+                sx={{ fontSize: 40, color: "white", cursor: "pointer" }}
+                onClick={() => setOpenModal(true)}/>
+              </div>
             <div className="icons">
             <HeartBrokenIcon
               sx={{ fontSize: 40, color: "white", cursor: "pointer" }}
