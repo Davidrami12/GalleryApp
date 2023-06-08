@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/GalleryApp/static/css/main.054a456f.css",
-    "main.js": "/GalleryApp/static/js/main.96859c9e.js",
+    "main.css": "/GalleryApp/static/css/main.fb691c2f.css",
+    "main.js": "/GalleryApp/static/js/main.5f217bc0.js",
     "static/js/787.e165633b.chunk.js": "/GalleryApp/static/js/787.e165633b.chunk.js",
     "static/media/parallax-frame1.png": "/GalleryApp/static/media/parallax-frame1.53945bd7d48622999391.png",
     "index.html": "/GalleryApp/index.html",
-    "main.054a456f.css.map": "/GalleryApp/static/css/main.054a456f.css.map",
-    "main.96859c9e.js.map": "/GalleryApp/static/js/main.96859c9e.js.map",
+    "main.fb691c2f.css.map": "/GalleryApp/static/css/main.fb691c2f.css.map",
+    "main.5f217bc0.js.map": "/GalleryApp/static/js/main.5f217bc0.js.map",
     "787.e165633b.chunk.js.map": "/GalleryApp/static/js/787.e165633b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.054a456f.css",
-    "static/js/main.96859c9e.js"
+    "static/css/main.fb691c2f.css",
+    "static/js/main.5f217bc0.js"
   ]
 }
