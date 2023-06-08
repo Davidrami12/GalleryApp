@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# GalleryApp
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
 
-## Available Scripts
+1. [Introduction](#introduction)
+2. [Technologies](#technologies)
+3. [Features](#features)
+4. [Setup](#setup)
+5. [Usage](#usage)
+6. [Contributing](#contributing)
 
-In the project directory, you can run:
+## Introduction
 
-### `npm start`
+GalleryApp is a powerful and dynamic web application developed using React, Redux, and Material-UI (MUI). It allows users to seamlessly browse, search, download, and favorite high-quality images sourced from the Unsplash API.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+🎨 It was firstly designed on Figma: https://www.figma.com/file/L6XNA2CBOQnaCt2TegDpI9/GalleryApp---MUI-(Material-Design-Component-Figma-Library-For-React)?type=design&node-id=729-2702&t=pkqAvQSqwLrLpJ28-0
+💻 Deployed on GitHub Pages. You can visualize this project at: https://davidrami12.github.io/GalleryApp/
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies
+- HTML
+- CSS
+- JavaScript
+- React
+- Redux
+- Material-UI
+- Unsplash API
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Home Page**: The application's main page.
+- **Search Page**: Connected to the Unsplash API, this page allows users to search for images by topic. With no input data, the search button will generate random images.
+- **Favorites Page**: All images added to the favorites will be displayed here. Users can download, edit the description, or delete them from favorites.
 
-### `npm run build`
+## Setup
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js installed (v14 or later recommended)
+- NPM (v6 or later) or Yarn (v1.22 or later)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+1. Clone the repository
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+git clone https://github.com/username/GalleryApp.git
+cd GalleryApp
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Install NPM packages
+```bash
+npm install
+```
+  or
+```bash
+yarn install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. Create a .env file in the root directory of the project, and add the Unsplash API key
+```bash
+REACT_APP_UNSPLASH_API_KEY=your_unsplash_api_key_here
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. Run the app in the development mode
+```bash
+npm start
+```
+   or
+```
+yarn start
+```
 
-## Learn More
+Open http://localhost:3000 to view it in the browser.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Usage
+Navigate to the Search page and input a topic to retrieve images related to your query. To add an image to your Favorites, simply click on the heart icon. Visit the Favorites page to view all your favorite images.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contributing
+If you want to contribute to this project and make it better, your help is very welcome.
