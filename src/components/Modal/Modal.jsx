@@ -13,14 +13,13 @@ import { useEffect, useState, useRef } from "react";
 import "./Modal.css";
 
 const Modal = ({ photo, closeModal }) => {
-  const [description, setDescription] = useState('');
+  const [setDescription] = useState('');
   const [inputValue, setInputValue] = useState('');
   const dispatch = useDispatch();
   const modalContent = useRef(null);
 
   // Updating description and input value when the photo prop changes
   useEffect(() => {
-    setDescription(photo.photo.description);
     setInputValue(photo.photo.description);
   }, [photo.photo]);
 

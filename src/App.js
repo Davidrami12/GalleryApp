@@ -20,7 +20,7 @@ function App() {
           <Route path="/" element={<Home/>}/>
           <Route path="/search" element={<Search/>}/>
           <Route path="/favorites" element={<Favorites/>}/>
-          <Route path='*' element ={<NotFound/>} />  
+          <Route path="*" element ={<NotFound/>} />  
         </Routes>
         <Footer/>
       </BrowserRouter>
