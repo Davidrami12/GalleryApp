@@ -25,6 +25,7 @@
 - Redux
 - Material-UI
 - Unsplash API
+- Toastify
 
 ## Features
 
