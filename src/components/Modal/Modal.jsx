@@ -6,6 +6,7 @@ import SaveAsIcon from '@mui/icons-material/SaveAs';
 import EditNoteIcon from '@mui/icons-material/EditNote';
 
 // Imports
+import { Notification } from '../Notification/Notification';
 import { editDescription } from "../../features/favorites/favoritesSlice";
 import { useDispatch } from "react-redux";
 import { saveAs } from "file-saver";
@@ -13,7 +14,8 @@ import { useEffect, useState, useRef } from "react";
 import "./Modal.css";
 
 const Modal = ({ photo, closeModal }) => {
-  const [setDescription] = useState('');
+
+  const [descriptiom, setDescription] = useState('');
   const [inputValue, setInputValue] = useState('');
   const dispatch = useDispatch();
   const modalContent = useRef(null);
@@ -38,6 +40,7 @@ const Modal = ({ photo, closeModal }) => {
     dispatch(editDescription({ id: photo.photo.id, desc: inputValue }));
     setDescription(inputValue);
     closeModal(false);
+    Notification("Image description saved", "success");
   };
 
   const handleDownload = () => {

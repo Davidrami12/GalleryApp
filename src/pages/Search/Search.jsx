@@ -2,8 +2,8 @@
 import SearchIcon from "@mui/icons-material/Search";
 
 // Components
-import Card from "../Card/Card";
-import Loading from "../Loading/Loading";
+import Card from "../../components/Card/Card";
+import Loading from "../../components/Loading/Loading";
 import noImage from "../../assets/no-image.png";
 import "./Search.css";
 

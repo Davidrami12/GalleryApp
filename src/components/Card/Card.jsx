@@ -10,6 +10,7 @@ import PanoramaVerticalIcon from '@mui/icons-material/PanoramaVertical';
 import PanoramaHorizontalIcon from '@mui/icons-material/PanoramaHorizontal';
 
 // Components
+import { Notification } from "../Notification/Notification";
 import Modal from "../Modal/Modal";
 import "./Card.css";
 
@@ -35,6 +36,7 @@ const Card = (photo) => {
     if (isFavourite) {
       dispatch(deleteFavorite(data.photo.id));
       setIsFavourite(false);
+      Notification("Image removed from favorites", "info");
     } else {
       // Save only the necessary data
       const dataToSave = {
@@ -49,11 +51,13 @@ const Card = (photo) => {
       };
       dispatch(addFavorite(dataToSave));
       setIsFavourite(true);
+      Notification("Image added to favorites!", "success");
     }
   };
 
   const handleDelete = (photo) => {
     dispatch(deleteFavorite(photo.photo.id));
+    Notification("Image removed from favorites", "info");
   };
 
   const handleDownload = () => {

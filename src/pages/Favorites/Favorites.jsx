@@ -6,7 +6,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 // Components 
-import Card from "../Card/Card";
+import Card from "../../components/Card/Card";
 import noImage from "../../assets/no-image.png";
 import "./Favorites.css";
 

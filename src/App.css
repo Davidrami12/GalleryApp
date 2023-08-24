@@ -9,6 +9,11 @@
   text-align: center;
 }
 
+.Toastify__toast {
+  margin-bottom: 12px !important;
+  max-width: 300px;
+}
+
 body{
   background-color: #DCE2F0;
   /* overflow: overlay; *//* transparent scrollbar */
