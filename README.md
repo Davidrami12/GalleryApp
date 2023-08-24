@@ -11,7 +11,7 @@
 
 ## Introduction
 
-<p>GalleryApp is a powerful and dynamic web application developed using React, Redux, and Material-UI (MUI). It allows users to seamlessly browse, search, download, and favorite high-quality images sourced from the Unsplash API.</p>
+<p>GalleryApp is a powerful and dynamic web application developed using React, Redux, and Material-UI (MUI). It allows users to seamlessly browse, search, filter, download, and favorite high-quality images sourced from the Unsplash API.</p>
 
 <p>🎨 It was firstly designed on Figma: https://www.figma.com/file/L6XNA2CBOQnaCt2TegDpI9/GalleryApp---MUI-(Material-Design-Component-Figma-Library-For-React)?type=design&node-id=729-2702&t=pkqAvQSqwLrLpJ28-0</p>
 
@@ -30,7 +30,7 @@
 
 - **Home Page**: The application's main page.
 - **Search Page**: Connected to the Unsplash API, this page allows users to search for images by topic. With no input data, the search button will generate random images.
-- **Favorites Page**: All images added to the favorites will be displayed here. Users can download, edit the description, or delete them from favorites.
+- **Favorites Page**: All images added to the favorites will be displayed here. Users can download, edit the description, or delete them from favorites. You can also filter your favorited images by date, width, height and number of likes.
 
 ## Setup
 
