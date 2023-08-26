@@ -45,7 +45,7 @@
 1. Clone the repository
 
 ```bash
-git clone https://github.com/username/GalleryApp.git
+git clone https://github.com/Davidrami12/GalleryApp.git
 cd GalleryApp
 ```
 
@@ -78,4 +78,4 @@ Open http://localhost:3000 to view it in the browser.
 Navigate to the Search page and input a topic to retrieve images related to your query. To add an image to your Favorites, simply click on the heart icon. Visit the Favorites page to view all your favorite images.
 
 ## Contributing
-If you want to contribute to this project and make it better, your help is very welcome.
+<p>This project is under the MIT license, and contributions are welcome. Please feel free to fork, create a feature branch, and submit a pull request. If you want to contribute to this project and make it better, your help is very welcome.</p>
